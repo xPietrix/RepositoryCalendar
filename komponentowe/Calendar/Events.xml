@@ -23,4 +23,10 @@
     <date>2018-06-21 15:38:49</date>
     <place>sdfsdf</place>
   </event>
+  <event>
+    <name>mecz</name>
+    <description>Ozorków</description>
+    <date>2018-06-21 17:18:57</date>
+    <place>Mecz towarzyski</place>
+  </event>
 </events>
