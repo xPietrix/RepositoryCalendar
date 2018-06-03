@@ -58,7 +58,6 @@ public class UserInterface
 		calendar.getDayChooser().setDayBordersVisible(true);
 		calendar.getDayChooser().setFont(new Font("Segoe UI", Font.PLAIN, 25));
 		calendar.getDayChooser().setBackground(Color.lightGray);
-		//calendar.getDayChooser().set (Color.LIGHT_GRAY);
 		calendar.getYearChooser().setFont(new Font("Segoe UI", Font.PLAIN, 25));
 		calendar.setBounds(50, 50, 900, 650);
 		calendar.getMonthChooser().setBounds(100, 100, 100, 100);
@@ -101,7 +100,6 @@ public class UserInterface
 		JMenuItem MenuitemSet1 = new JMenuItem("Ustawienie 1");
 		MenuitemSet1.setFont(new Font("Segoe UI", 24, 24));
 		UstawieniaMenu.add(MenuitemSet1);
-		
 		
 		JMenuItem MenuitemSet2 = new JMenuItem("Ustawienie 2");
 		MenuitemSet2.setFont(new Font("Segoe UI", 24, 24));
