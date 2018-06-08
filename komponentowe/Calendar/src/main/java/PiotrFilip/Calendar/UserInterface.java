@@ -9,11 +9,6 @@ import java.awt.Font;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
-import javax.swing.JList;
-import javax.swing.DefaultListModel;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JLabel;
 import javax.swing.JButton;
 
 public class UserInterface 

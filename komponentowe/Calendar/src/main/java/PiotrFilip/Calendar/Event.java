@@ -1,6 +1,6 @@
 package PiotrFilip.Calendar;
 
-import java.text.SimpleDateFormat;  
+import java.text.SimpleDateFormat;   
 import java.util.Date;
 
 public class Event {
