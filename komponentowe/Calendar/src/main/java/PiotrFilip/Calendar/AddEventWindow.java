@@ -1,6 +1,6 @@
 package PiotrFilip.Calendar;
 
-import javax.swing.JFrame; 
+import javax.swing.JFrame;  
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
@@ -21,17 +21,18 @@ public class AddEventWindow extends JFrame
 	JTextField textField;
 	JTextField textField_1;
 	JTextField textField_2;
-	ButtonListener BListener;
+	ButtonListener bListener;
 	JDateChooser dateChooser;
+	@SuppressWarnings("rawtypes")
 	JComboBox comboBox;
-	JButton AddButton;
+	JButton addButton;
 	
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public AddEventWindow(DataService Service, ButtonListener BListener) 
 	{
 		this.Service = Service;
-		this.BListener = BListener; 
+		this.bListener = BListener; 
 		
 		setBounds(100, 100, 592, 519);
 		contentPane = new JPanel();
@@ -39,10 +40,10 @@ public class AddEventWindow extends JFrame
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblPutYourData = new JLabel("PODAJ DANE PONIŻEJ:");
-		lblPutYourData.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblPutYourData.setBounds(203, 16, 269, 42);
-		contentPane.add(lblPutYourData);
+		JLabel putYourDataLabel = new JLabel("PODAJ DANE PONIŻEJ:");
+		putYourDataLabel.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		putYourDataLabel.setBounds(203, 16, 269, 42);
+		contentPane.add(putYourDataLabel);
 		
 		JLabel lblName = new JLabel("NAZWA: ");
 		lblName.setFont(new Font("Tahoma", Font.PLAIN, 24));
@@ -65,15 +66,13 @@ public class AddEventWindow extends JFrame
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
-		AddButton = new JButton("DODAJ");
-		AddButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		AddButton.setBackground(new Color(0, 255, 0));
-		AddButton.setBounds(203, 369, 137, 42);
-		contentPane.add(AddButton);
+		addButton = new JButton("DODAJ");
+		addButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		addButton.setBackground(new Color(0, 255, 0));
+		addButton.setBounds(203, 369, 137, 42);
+		contentPane.add(addButton);
 		
-		//BListener = new ButtonListener(this);
-		
-		AddButton.addActionListener(BListener);
+		addButton.addActionListener(BListener);
 		
 		textField_1 = new JTextField();
 		textField_1.setFont(new Font("Tahoma", Font.PLAIN, 24));

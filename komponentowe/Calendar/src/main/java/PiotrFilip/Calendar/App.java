@@ -5,8 +5,7 @@ public class App
 	@SuppressWarnings("unused")
 	public static void main( String[] args )
 	{
-        DataRepository XmlRepo = new XMLRepository();
-       
-        UserInterface Interface = new UserInterface(XmlRepo);
+        DataRepository xmlRepo = new XMLRepository();
+        UserInterface userInterface = new UserInterface(xmlRepo);
     }
 }

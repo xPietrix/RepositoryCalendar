@@ -1,38 +1,27 @@
 package PiotrFilip.Calendar;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.EventQueue;
-import java.awt.Font;
 import java.util.ArrayList;
 import java.util.Date;
 
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-import com.toedter.calendar.JDateChooser;
 import javax.swing.JList;
 
+@SuppressWarnings("serial")
 public class EventsReaderWindow extends JFrame 
 {
 	JPanel contentPane;
-	DataService Service;
+	DataService service;
 	UserInterface userInterface;
 	JList<?> list;
 	
-
-	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public EventsReaderWindow(DataService Service, UserInterface userInterface) 
 	{
-		this.Service = Service;
+		this.service = Service;
 		this.userInterface = userInterface; 
 		
 		setBounds(100, 100, 1021, 695);
@@ -48,12 +37,13 @@ public class EventsReaderWindow extends JFrame
 		refreshList(Service, userInterface);
 	}
 
-	@SuppressWarnings("deprecation")
+	@SuppressWarnings({ "deprecation", "unchecked" })
 	private void refreshList(DataService Service, UserInterface userInterface)
 	{
+		@SuppressWarnings("rawtypes")
 		DefaultListModel dlm = new DefaultListModel();
 		
-		ArrayList <Event> EventsList;
+		ArrayList <Event> eventsList;
 		Date from = new Date();
 		Date to = new Date();
 		
@@ -71,11 +61,11 @@ public class EventsReaderWindow extends JFrame
 		to.setMinutes(59);
 		to.setSeconds(59);
 		
-		EventsList = (ArrayList<Event>) userInterface.Service.getEventsByDates(from, to);
+		eventsList = (ArrayList<Event>) userInterface.service.getEventsByDates(from, to);
 		
-		System.out.println(EventsList);
+		System.out.println(eventsList);
 		
-		for(Event event: EventsList)
+		for(Event event: eventsList)
 		{
 				dlm.addElement(event.getName());	
 				dlm.addElement(event.getDate().toString());

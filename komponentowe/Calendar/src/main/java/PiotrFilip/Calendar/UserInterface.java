@@ -20,18 +20,18 @@ public class UserInterface
 {
 	
 	private JFrame frame;
-	DataService Service;
+	DataService service;
 	ButtonListener buttonListener;
-	DataRepository Repo;
+	DataRepository repo;
 	JMenuBar menuBar;
-	JMenu SettingsMenu;
-	JMenuItem SetXML;
-	JMenuItem SetSQL;
-	JMenuItem AddWindowItem;
-	JMenuItem DeleteWindowItem;
-	JButton RefreshButton;
+	JMenu settingsMenu;
+	JMenuItem setXML;
+	JMenuItem setSQL;
+	JMenuItem addWindowItem;
+	JMenuItem deleteWindowItem;
+	JButton refreshButton;
 	JCalendar calendar;
-	JMenu DeleteMenu;
+	JMenu deleteMenu;
 
 	/**
 	 * Create the application.
@@ -39,7 +39,7 @@ public class UserInterface
 
 	public UserInterface(DataRepository Repository) 
 	{
-		Service = new DataService(Repository);
+		service = new DataService(Repository);
 		buttonListener = new ButtonListener(this);
 		initialize();
 	}
@@ -76,66 +76,66 @@ public class UserInterface
 		
 		frame.getContentPane().add(calendar);
 		
-		RefreshButton = new JButton("Pokaż wydarzenia");
-		RefreshButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		RefreshButton.addActionListener(buttonListener);
-		RefreshButton.setBounds(1061, 50, 243, 58);
-		frame.getContentPane().add(RefreshButton);
+		refreshButton = new JButton("Pokaż wydarzenia");
+		refreshButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		refreshButton.addActionListener(buttonListener);
+		refreshButton.setBounds(1061, 50, 243, 58);
+		frame.getContentPane().add(refreshButton);
 		
 		menuBar = new JMenuBar();
 		menuBar.setFont(new Font("Segoe UI", Font.PLAIN, 25));
 		menuBar.setPreferredSize(new Dimension(1000, 75));
 		frame.setJMenuBar(menuBar);
 		
-		SettingsMenu = new JMenu("Ustawienia");
-		SettingsMenu.setFont(new Font("Segoe UI", 24, 24));
-		menuBar.add(SettingsMenu);
+		settingsMenu = new JMenu("Ustawienia");
+		settingsMenu.setFont(new Font("Segoe UI", 24, 24));
+		menuBar.add(settingsMenu);
 		
-		SettingsMenu.addSeparator();
+		settingsMenu.addSeparator();
 		
-		SetXML = new JMenuItem("Wykorzystaj XML");
-		SetXML.addActionListener(buttonListener);
-		SetXML.setFont(new Font("Segoe UI", 24, 24));
-		SettingsMenu.add(SetXML);
+		setXML = new JMenuItem("Wykorzystaj XML");
+		setXML.addActionListener(buttonListener);
+		setXML.setFont(new Font("Segoe UI", 24, 24));
+		settingsMenu.add(setXML);
 		
-		SetSQL = new JMenuItem("Wykorzystaj MySQLServer");
-		SetSQL.setFont(new Font("Segoe UI", 24, 24));
-		SetSQL.addActionListener(buttonListener);
-		SettingsMenu.add(SetSQL);
+		setSQL = new JMenuItem("Wykorzystaj MySQLServer");
+		setSQL.setFont(new Font("Segoe UI", 24, 24));
+		setSQL.addActionListener(buttonListener);
+		settingsMenu.add(setSQL);
 		
-		JMenu EksportMenu = new JMenu("Eksport");
-		EksportMenu.setFont(new Font("Segoe UI", 24, 24));
-		menuBar.add(EksportMenu);
+		JMenu exportMenu = new JMenu("Eksport");
+		exportMenu.setFont(new Font("Segoe UI", 24, 24));
+		menuBar.add(exportMenu);
 		
-		EksportMenu.addSeparator();
+		exportMenu.addSeparator();
 		
-		JMenu OProgramieMenu = new JMenu("O programie");
-		OProgramieMenu.setFont(new Font("Segoe UI", 24, 24));
-		menuBar.add(OProgramieMenu);
+		JMenu aboutProgram = new JMenu("O programie");
+		aboutProgram.setFont(new Font("Segoe UI", 24, 24));
+		menuBar.add(aboutProgram);
 		
-		OProgramieMenu.addSeparator();
+		aboutProgram.addSeparator();
 		
-		JMenu DodajWydarzenieMenu = new JMenu("Dodaj wydarzenie");
-		DodajWydarzenieMenu.setFont(new Font("Segoe UI", 24, 24));
-		menuBar.add(DodajWydarzenieMenu);
+		JMenu addWindowMenu = new JMenu("Dodaj wydarzenie");
+		addWindowMenu.setFont(new Font("Segoe UI", 24, 24));
+		menuBar.add(addWindowMenu);
 		
-		DodajWydarzenieMenu.addSeparator();
+		addWindowMenu.addSeparator();
 		
-		AddWindowItem = new JMenuItem("Dodaj");
-		AddWindowItem.setFont(new Font("Segoe UI", 24, 24));
-		AddWindowItem.addActionListener(buttonListener);
-		DodajWydarzenieMenu.add(AddWindowItem);
-		DodajWydarzenieMenu.addSeparator();
+		addWindowItem = new JMenuItem("Dodaj");
+		addWindowItem.setFont(new Font("Segoe UI", 24, 24));
+		addWindowItem.addActionListener(buttonListener);
+		addWindowMenu.add(addWindowItem);
+		addWindowMenu.addSeparator();
 		
-		DeleteMenu = new JMenu("Usuń wydarzenie");
-		DeleteMenu.setFont(new Font("Segoe UI", 24, 24));
-		menuBar.add(DeleteMenu);
+		deleteMenu = new JMenu("Usuń wydarzenie");
+		deleteMenu.setFont(new Font("Segoe UI", 24, 24));
+		menuBar.add(deleteMenu);
 		menuBar.setMargin(null);
 		
-		DeleteWindowItem = new JMenuItem("Usun wydarzenie");
-		DeleteWindowItem.setFont(new Font("Segoe UI", 24, 24));
-		DeleteWindowItem.addActionListener(buttonListener);
-		DeleteMenu.add(DeleteWindowItem);
+		deleteWindowItem = new JMenuItem("Usun wydarzenie");
+		deleteWindowItem.setFont(new Font("Segoe UI", 24, 24));
+		deleteWindowItem.addActionListener(buttonListener);
+		deleteMenu.add(deleteWindowItem);
 		
 		this.frame.setVisible(true);
 	}
@@ -143,11 +143,11 @@ public class UserInterface
 	
 	public void changeToXml()
 	{
-		Service = new DataService(new XMLRepository());
+		service = new DataService(new XMLRepository());
 	}
 	
 	public void changeToSQL()
 	{
-		Service = new DataService(new MySQLRepository());
+		service = new DataService(new MySQLRepository());
 	}
 }
