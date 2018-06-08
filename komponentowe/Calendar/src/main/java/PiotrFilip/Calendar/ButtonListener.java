@@ -2,7 +2,10 @@ package PiotrFilip.Calendar;
 
 import java.awt.event.ActionEvent;   
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Date;
+
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
@@ -11,12 +14,15 @@ public class ButtonListener implements ActionListener
 	JButton SaveButton;
 	AddEventWindow AddWindow;
 	UserInterface userInterface;
+	EventsReaderWindow eventsReaderWindow;
+	DeleteEventsWindow deleteEventsWindow;
 	
 	public ButtonListener(UserInterface userInterface)
 	{
 		this.userInterface = userInterface;
 	}
 	
+	@SuppressWarnings("deprecation")
 	public void actionPerformed(ActionEvent e) 
 	{
 		Date date;
@@ -40,6 +46,41 @@ public class ButtonListener implements ActionListener
 			System.out.println("zmienilo sie na SQL");
 			userInterface.changeToSQL();
 		}
+		else if(e.getSource() == userInterface.RefreshButton)
+		{
+			eventsReaderWindow = new EventsReaderWindow(userInterface.Service, userInterface);
+			eventsReaderWindow.setVisible(true);
+			
+		}
+		else if(e.getSource() == userInterface.DeleteWindowItem)
+		{
+			deleteEventsWindow = new DeleteEventsWindow(userInterface) ;
+			deleteEventsWindow.setVisible(true);
+			
+		} 
+		
+		else if(e.getSource() == deleteEventsWindow.DeleteButton)
+		{
+			String nameToDelete = deleteEventsWindow.textField.getText();
+			System.out.println("XDD");
+			try 
+			{
+				userInterface.Service.deleteEvent(nameToDelete);
+			} 
+			catch (NotExistingNameException e1) 
+			{
+				deleteEventsWindow.textField.setText("Nie ma takiej nazwy");
+				e1.printStackTrace();
+			}	
+		}
+		
+		else if(e.getSource() == deleteEventsWindow.DeleteOlder)
+		{
+			System.out.println("XDDAAA");
+			date = deleteEventsWindow.dateChooser.getDate();
+			userInterface.Service.removeEventsOlderThan(date);
+		}
+		
 		else if(e.getSource() == AddWindow.AddButton)
 		{
 			System.out.println("SaveButton is working");

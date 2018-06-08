@@ -28,6 +28,10 @@ public class UserInterface
 	JMenuItem SetXML;
 	JMenuItem SetSQL;
 	JMenuItem AddWindowItem;
+	JMenuItem DeleteWindowItem;
+	JButton RefreshButton;
+	JCalendar calendar;
+	JMenu DeleteMenu;
 
 	/**
 	 * Create the application.
@@ -52,7 +56,7 @@ public class UserInterface
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JCalendar calendar = new JCalendar();
+		calendar = new JCalendar();
 		calendar.getYearChooser().getSpinner().setFont(new Font("Tahoma", Font.PLAIN, 24));
 		calendar.getYearChooser().setPreferredSize(new Dimension(100, 50));
 		calendar.getMonthChooser().getComboBox().setFont(new Font("Tahoma", Font.PLAIN, 24));
@@ -72,35 +76,10 @@ public class UserInterface
 		
 		frame.getContentPane().add(calendar);
 		
-		JList list = new JList();
-		
-		list.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		list.setBackground(Color.LIGHT_GRAY);
-		
-		DefaultListModel dlm = new DefaultListModel();
-		
-		for(Event event: Service.getEventList())
-		{
-				dlm.addElement(event.getName());	
-		}
-		
-		list.setModel(dlm);
-		list.setBounds(990, 104, 373, 506);
-		
-		frame.getContentPane().add(list);
-		
-		JLabel lblAktualnaListaWydarze = new JLabel("Aktualna lista wydarzeń:");
-		lblAktualnaListaWydarze.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblAktualnaListaWydarze.setBounds(1037, 50, 260, 48);
-		frame.getContentPane().add(lblAktualnaListaWydarze);
-		
-		JButton RefreshButton = new JButton("Odśwież");
+		RefreshButton = new JButton("Pokaż wydarzenia");
 		RefreshButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		RefreshButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		RefreshButton.setBounds(1087, 657, 190, 58);
+		RefreshButton.addActionListener(buttonListener);
+		RefreshButton.setBounds(1061, 50, 243, 58);
 		frame.getContentPane().add(RefreshButton);
 		
 		menuBar = new JMenuBar();
@@ -148,10 +127,15 @@ public class UserInterface
 		DodajWydarzenieMenu.add(AddWindowItem);
 		DodajWydarzenieMenu.addSeparator();
 		
-		JMenu UsunWydarzenie = new JMenu("Usuń wydarzenie");
-		UsunWydarzenie.setFont(new Font("Segoe UI", 24, 24));
-		menuBar.add(UsunWydarzenie);
+		DeleteMenu = new JMenu("Usuń wydarzenie");
+		DeleteMenu.setFont(new Font("Segoe UI", 24, 24));
+		menuBar.add(DeleteMenu);
 		menuBar.setMargin(null);
+		
+		DeleteWindowItem = new JMenuItem("Usun wydarzenie");
+		DeleteWindowItem.setFont(new Font("Segoe UI", 24, 24));
+		DeleteWindowItem.addActionListener(buttonListener);
+		DeleteMenu.add(DeleteWindowItem);
 		
 		this.frame.setVisible(true);
 	}
