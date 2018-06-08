@@ -14,21 +14,29 @@ import javax.swing.DefaultListModel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
+import javax.swing.JButton;
 
 public class UserInterface 
 {
 	
 	private JFrame frame;
-	DataService XMLService;
-	DataService SQLService;
+	DataService Service;
+	ButtonListener buttonListener;
+	DataRepository Repo;
+	JMenuBar menuBar;
+	JMenu SettingsMenu;
+	JMenuItem SetXML;
+	JMenuItem SetSQL;
+	JMenuItem AddWindowItem;
 
 	/**
 	 * Create the application.
 	 */
-	public UserInterface(DataService XMLService, DataService SQLService)
+
+	public UserInterface(DataRepository Repository) 
 	{
-		this.XMLService = XMLService;
-		this.SQLService = SQLService;
+		Service = new DataService(Repository);
+		buttonListener = new ButtonListener(this);
 		initialize();
 	}
 
@@ -40,7 +48,7 @@ public class UserInterface
 		//UserInterface window = new UserInterface();
 		
 		frame = new JFrame();
-		frame.setBounds(100, 100, 1400, 800);
+		frame.setBounds(100, 100, 1400, 900);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -71,7 +79,7 @@ public class UserInterface
 		
 		DefaultListModel dlm = new DefaultListModel();
 		
-		for(Event event: XMLService.getEventList())
+		for(Event event: Service.getEventList())
 		{
 				dlm.addElement(event.getName());	
 		}
@@ -86,24 +94,35 @@ public class UserInterface
 		lblAktualnaListaWydarze.setBounds(1037, 50, 260, 48);
 		frame.getContentPane().add(lblAktualnaListaWydarze);
 		
-		JMenuBar menuBar = new JMenuBar();
+		JButton RefreshButton = new JButton("Odśwież");
+		RefreshButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		RefreshButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		RefreshButton.setBounds(1087, 657, 190, 58);
+		frame.getContentPane().add(RefreshButton);
+		
+		menuBar = new JMenuBar();
 		menuBar.setFont(new Font("Segoe UI", Font.PLAIN, 25));
 		menuBar.setPreferredSize(new Dimension(1000, 75));
 		frame.setJMenuBar(menuBar);
 		
-		JMenu UstawieniaMenu = new JMenu("Ustawienia");
-		UstawieniaMenu.setFont(new Font("Segoe UI", 24, 24));
-		menuBar.add(UstawieniaMenu);
+		SettingsMenu = new JMenu("Ustawienia");
+		SettingsMenu.setFont(new Font("Segoe UI", 24, 24));
+		menuBar.add(SettingsMenu);
 		
-		UstawieniaMenu.addSeparator();
+		SettingsMenu.addSeparator();
 		
-		JMenuItem MenuitemSet1 = new JMenuItem("Ustawienie 1");
-		MenuitemSet1.setFont(new Font("Segoe UI", 24, 24));
-		UstawieniaMenu.add(MenuitemSet1);
+		SetXML = new JMenuItem("Wykorzystaj XML");
+		SetXML.addActionListener(buttonListener);
+		SetXML.setFont(new Font("Segoe UI", 24, 24));
+		SettingsMenu.add(SetXML);
 		
-		JMenuItem MenuitemSet2 = new JMenuItem("Ustawienie 2");
-		MenuitemSet2.setFont(new Font("Segoe UI", 24, 24));
-		UstawieniaMenu.add(MenuitemSet2);
+		SetSQL = new JMenuItem("Wykorzystaj MySQLServer");
+		SetSQL.setFont(new Font("Segoe UI", 24, 24));
+		SetSQL.addActionListener(buttonListener);
+		SettingsMenu.add(SetSQL);
 		
 		JMenu EksportMenu = new JMenu("Eksport");
 		EksportMenu.setFont(new Font("Segoe UI", 24, 24));
@@ -123,17 +142,10 @@ public class UserInterface
 		
 		DodajWydarzenieMenu.addSeparator();
 		
-		JMenuItem Dodaj = new JMenuItem("Dodaj");
-		Dodaj.setFont(new Font("Segoe UI", 24, 24));
-		Dodaj.addActionListener(new ActionListener() 
-		{
-			public void actionPerformed(ActionEvent arg0) 
-			{
-				AddEventWindow AddingEventWindow = new AddEventWindow(XMLService, SQLService);
-				AddingEventWindow.setVisible(true);
-			}
-		});
-		DodajWydarzenieMenu.add(Dodaj);
+		AddWindowItem = new JMenuItem("Dodaj");
+		AddWindowItem.setFont(new Font("Segoe UI", 24, 24));
+		AddWindowItem.addActionListener(buttonListener);
+		DodajWydarzenieMenu.add(AddWindowItem);
 		DodajWydarzenieMenu.addSeparator();
 		
 		JMenu UsunWydarzenie = new JMenu("Usuń wydarzenie");
@@ -142,5 +154,16 @@ public class UserInterface
 		menuBar.setMargin(null);
 		
 		this.frame.setVisible(true);
+	}
+	
+	
+	public void changeToXml()
+	{
+		Service = new DataService(new XMLRepository());
+	}
+	
+	public void changeToSQL()
+	{
+		Service = new DataService(new MySQLRepository());
 	}
 }

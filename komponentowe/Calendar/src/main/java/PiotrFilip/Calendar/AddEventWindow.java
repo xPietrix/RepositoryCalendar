@@ -17,21 +17,22 @@ import javax.swing.DefaultComboBoxModel;
 public class AddEventWindow extends JFrame 
 {
 	JPanel contentPane;
-	DataService XMLService;
-	DataService SQLService;
+	DataService Service;
 	JTextField textField;
 	JTextField textField_1;
 	JTextField textField_2;
 	ButtonListener BListener;
 	JDateChooser dateChooser;
 	JComboBox comboBox;
+	JButton AddButton;
+	
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public AddEventWindow(DataService XMLService, DataService SQLService) 
+	public AddEventWindow(DataService Service, ButtonListener BListener) 
 	{
-		this.XMLService = XMLService;
-		this.SQLService = SQLService;
-	
+		this.Service = Service;
+		this.BListener = BListener; 
+		
 		setBounds(100, 100, 592, 519);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -64,15 +65,15 @@ public class AddEventWindow extends JFrame
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
-		JButton btnNewButton = new JButton("DODAJ");
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnNewButton.setBackground(new Color(0, 255, 0));
-		btnNewButton.setBounds(203, 369, 137, 42);
-		contentPane.add(btnNewButton);
+		AddButton = new JButton("DODAJ");
+		AddButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		AddButton.setBackground(new Color(0, 255, 0));
+		AddButton.setBounds(203, 369, 137, 42);
+		contentPane.add(AddButton);
 		
-		BListener = new ButtonListener(btnNewButton, this);
+		//BListener = new ButtonListener(this);
 		
-		btnNewButton.addActionListener(BListener);
+		AddButton.addActionListener(BListener);
 		
 		textField_1 = new JTextField();
 		textField_1.setFont(new Font("Tahoma", Font.PLAIN, 24));

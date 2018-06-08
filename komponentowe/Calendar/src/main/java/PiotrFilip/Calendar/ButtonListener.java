@@ -1,6 +1,6 @@
 package PiotrFilip.Calendar;
 
-import java.awt.event.ActionEvent;  
+import java.awt.event.ActionEvent;   
 import java.awt.event.ActionListener;
 import java.util.Date;
 import javax.swing.JButton;
@@ -10,14 +10,13 @@ public class ButtonListener implements ActionListener
 {
 	JButton SaveButton;
 	AddEventWindow AddWindow;
+	UserInterface userInterface;
 	
-	public ButtonListener(JButton sButton, AddEventWindow addEventWindow)
+	public ButtonListener(UserInterface userInterface)
 	{
-		SaveButton = sButton;
-		AddWindow = addEventWindow;
+		this.userInterface = userInterface;
 	}
 	
-	@SuppressWarnings("deprecation")
 	public void actionPerformed(ActionEvent e) 
 	{
 		Date date;
@@ -25,7 +24,23 @@ public class ButtonListener implements ActionListener
 		String name, place, description;
 		String hour;
 		int hours;
-		if(e.getSource() == SaveButton)
+		
+		if(e.getSource() == userInterface.AddWindowItem)
+		{
+			AddWindow = new AddEventWindow(userInterface.Service, userInterface.buttonListener);
+			AddWindow.setVisible(true);
+		}
+		else if(e.getSource() == userInterface.SetXML)
+		{
+			System.out.println("zmienilo sie na XML");
+			userInterface.changeToXml();
+		}
+		else if(e.getSource() == userInterface.SetSQL)
+		{
+			System.out.println("zmienilo sie na SQL");
+			userInterface.changeToSQL();
+		}
+		else if(e.getSource() == AddWindow.AddButton)
 		{
 			System.out.println("SaveButton is working");
 			
@@ -38,8 +53,7 @@ public class ButtonListener implements ActionListener
 				hour = (String) AddWindow.comboBox.getSelectedItem(); 
 				
 				
-				AddWindow.XMLService.addEvent(name, place, date, description);
-				AddWindow.SQLService.addEvent(name, place, date, description);
+				AddWindow.Service.addEvent(name, place, date, description);
 				
 				System.out.println("Data z kalendarza: " + date + "  " + hour);
 				
@@ -54,6 +68,7 @@ public class ButtonListener implements ActionListener
 				JOptionPane.showMessageDialog(AddWindow, "Please Enter the Right Info", "Error", JOptionPane.ERROR_MESSAGE);
 				System.exit(0); 
 			}
-		}	
+		}
+		
 	}
 }
