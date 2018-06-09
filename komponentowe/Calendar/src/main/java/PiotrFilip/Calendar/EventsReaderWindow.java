@@ -19,26 +19,15 @@ public class EventsReaderWindow extends JFrame
 	UserInterface userInterface;
 	JList<?> list;
 	
-	public EventsReaderWindow(DataService Service, UserInterface userInterface) 
+	public EventsReaderWindow(DataService service, UserInterface userInterface) 
 	{
-		this.service = Service;
+		this.service = service;
 		this.userInterface = userInterface; 
-		
-		setBounds(100, 100, 1021, 695);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
-		
-		list = new JList<Object>();
-		list.setBackground(Color.LIGHT_GRAY);
-		list.setBounds(34, 26, 937, 577);
-		contentPane.add(list);
-		refreshList(Service, userInterface);
+		initialize();
 	}
 
 	@SuppressWarnings({ "deprecation", "unchecked" })
-	private void refreshList(DataService Service, UserInterface userInterface)
+	private void refreshList(DataService service, UserInterface userInterface)
 	{
 		@SuppressWarnings("rawtypes")
 		DefaultListModel dlm = new DefaultListModel();
@@ -76,4 +65,18 @@ public class EventsReaderWindow extends JFrame
 		list.setModel(dlm);
 	}
 	
+	private void initialize()
+	{
+		setBounds(100, 100, 1021, 695);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		list = new JList<Object>();
+		list.setBackground(Color.LIGHT_GRAY);
+		list.setBounds(34, 26, 937, 577);
+		contentPane.add(list);
+		refreshList(service, userInterface);
+	}
 }

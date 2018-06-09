@@ -12,6 +12,7 @@ public class ButtonListener implements ActionListener
 	UserInterface userInterface;
 	EventsReaderWindow eventsReaderWindow;
 	DeleteEventsWindow deleteEventsWindow;
+	AboutProgramWindow aboutProgramWindow;
 	
 	public ButtonListener(UserInterface userInterface)
 	{
@@ -27,7 +28,7 @@ public class ButtonListener implements ActionListener
 		
 		if(e.getSource() == userInterface.addWindowItem)
 		{
-			addWindow = new AddEventWindow(userInterface.service, userInterface.buttonListener);
+			addWindow = new AddEventWindow(userInterface);
 			addWindow.setVisible(true);
 		}
 		else if(e.getSource() == userInterface.setXML)
@@ -52,6 +53,11 @@ public class ButtonListener implements ActionListener
 			deleteEventsWindow.setVisible(true);
 			
 		} 
+		else if(e.getSource() == userInterface.aboutProgramItem)
+		{
+			aboutProgramWindow = new AboutProgramWindow(userInterface);
+			aboutProgramWindow.setVisible(true);
+		}
 		else if(e.getSource() == addWindow.addButton)
 		{
 			System.out.println("SaveButton is working");
@@ -65,7 +71,7 @@ public class ButtonListener implements ActionListener
 				hour = (String) addWindow.comboBox.getSelectedItem(); 
 				
 				
-				addWindow.Service.addEvent(name, place, date, description);
+				addWindow.service.addEvent(name, place, date, description);
 				
 				System.out.println("Data z kalendarza: " + date + "  " + hour);
 				

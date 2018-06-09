@@ -14,10 +14,11 @@ import com.toedter.calendar.JDateChooser;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 
+@SuppressWarnings("serial")
 public class AddEventWindow extends JFrame 
 {
 	JPanel contentPane;
-	DataService Service;
+	DataService service;
 	JTextField textField;
 	JTextField textField_1;
 	JTextField textField_2;
@@ -27,13 +28,17 @@ public class AddEventWindow extends JFrame
 	JComboBox comboBox;
 	JButton addButton;
 	
-
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public AddEventWindow(DataService Service, ButtonListener BListener) 
+	
+	public AddEventWindow(UserInterface userInterface) 
 	{
-		this.Service = Service;
-		this.bListener = BListener; 
-		
+		service = userInterface.service;
+		bListener = userInterface.buttonListener;
+		initialize();
+	}
+	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	private void initialize()
+	{
 		setBounds(100, 100, 592, 519);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -72,7 +77,7 @@ public class AddEventWindow extends JFrame
 		addButton.setBounds(203, 369, 137, 42);
 		contentPane.add(addButton);
 		
-		addButton.addActionListener(BListener);
+		addButton.addActionListener(bListener);
 		
 		textField_1 = new JTextField();
 		textField_1.setFont(new Font("Tahoma", Font.PLAIN, 24));

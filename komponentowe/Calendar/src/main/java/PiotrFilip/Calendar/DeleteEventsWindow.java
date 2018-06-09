@@ -29,7 +29,11 @@ public class DeleteEventsWindow extends JFrame
 	public DeleteEventsWindow(UserInterface userInterface) 
 	{
 		this.userInterface = userInterface;
-		
+		initialize();
+	}
+	
+	private void initialize()
+	{
 		setBounds(100, 100, 592, 519);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

@@ -19,14 +19,10 @@ public class UserInterface
 	ButtonListener buttonListener;
 	DataRepository repo;
 	JMenuBar menuBar;
-	JMenu settingsMenu;
-	JMenuItem setXML;
-	JMenuItem setSQL;
-	JMenuItem addWindowItem;
-	JMenuItem deleteWindowItem;
+	JMenu settingsMenu, deleteMenu, exportMenu, aboutProgramMenu, addWindowMenu;
+	JMenuItem setXML, setSQL, addWindowItem, deleteWindowItem, aboutProgramItem;
 	JButton refreshButton;
 	JCalendar calendar;
-	JMenu deleteMenu;
 
 	/**
 	 * Create the application.
@@ -98,19 +94,25 @@ public class UserInterface
 		setSQL.addActionListener(buttonListener);
 		settingsMenu.add(setSQL);
 		
-		JMenu exportMenu = new JMenu("Eksport");
+		exportMenu = new JMenu("Eksport");
 		exportMenu.setFont(new Font("Segoe UI", 24, 24));
 		menuBar.add(exportMenu);
 		
 		exportMenu.addSeparator();
 		
-		JMenu aboutProgram = new JMenu("O programie");
-		aboutProgram.setFont(new Font("Segoe UI", 24, 24));
-		menuBar.add(aboutProgram);
+		aboutProgramMenu = new JMenu("O programie");
+		aboutProgramMenu.setFont(new Font("Segoe UI", 24, 24));
+		menuBar.add(aboutProgramMenu);
 		
-		aboutProgram.addSeparator();
+		aboutProgramMenu.addSeparator();
 		
-		JMenu addWindowMenu = new JMenu("Dodaj wydarzenie");
+		aboutProgramItem = new JMenuItem("Informacje o programie");
+		aboutProgramItem.setFont(new Font("Segoe UI", 24, 24));
+		aboutProgramItem.addActionListener(buttonListener);
+		aboutProgramMenu.add(aboutProgramItem);
+		
+		
+		addWindowMenu = new JMenu("Dodaj wydarzenie");
 		addWindowMenu.setFont(new Font("Segoe UI", 24, 24));
 		menuBar.add(addWindowMenu);
 		
