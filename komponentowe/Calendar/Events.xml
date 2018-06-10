@@ -1,1 +1,20 @@
-<events/>
+<events>
+  <event>
+    <name>qwe</name>
+    <description>qwe</description>
+    <date>2018-06-15 00:05:59</date>
+    <place>qwe</place>
+  </event>
+  <event>
+    <name>zz</name>
+    <description>zz</description>
+    <date>2018-06-07 13:45:50</date>
+    <place>zzz</place>
+  </event>
+  <event>
+    <name>eee</name>
+    <description>eee</description>
+    <date>2018-06-20 16:25:33</date>
+    <place>eee</place>
+  </event>
+</events>

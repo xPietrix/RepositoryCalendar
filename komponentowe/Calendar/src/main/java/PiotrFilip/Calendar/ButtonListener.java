@@ -31,6 +31,7 @@ public class ButtonListener implements ActionListener
 		{
 			addWindow = new AddEventWindow(userInterface);
 			deleteEventsWindow = new DeleteEventsWindow(userInterface);
+			alarmSettingsWindow = new AlarmSettingsWindow(userInterface);
 			addWindow.setVisible(true);
 		}
 		else if(e.getSource() == userInterface.setXML)
@@ -46,6 +47,8 @@ public class ButtonListener implements ActionListener
 		else if(e.getSource() == userInterface.setAlarm)
 		{
 			alarmSettingsWindow = new AlarmSettingsWindow(userInterface);
+			addWindow = new AddEventWindow(userInterface);
+			deleteEventsWindow = new DeleteEventsWindow(userInterface);
 			alarmSettingsWindow.setVisible(true);
 		}
 		
@@ -59,6 +62,7 @@ public class ButtonListener implements ActionListener
 		{
 			addWindow = new AddEventWindow(userInterface);
 			deleteEventsWindow = new DeleteEventsWindow(userInterface);
+			alarmSettingsWindow = new AlarmSettingsWindow(userInterface);
 			deleteEventsWindow.setVisible(true);
 			
 		} 
