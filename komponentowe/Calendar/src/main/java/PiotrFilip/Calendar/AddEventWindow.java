@@ -1,6 +1,6 @@
 package PiotrFilip.Calendar;
 
-import javax.swing.JFrame;  
+import javax.swing.JFrame;   
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
@@ -25,8 +25,10 @@ public class AddEventWindow extends JFrame
 	ButtonListener bListener;
 	JDateChooser dateChooser;
 	@SuppressWarnings("rawtypes")
-	JComboBox comboBox;
+	JComboBox hoursComboBox, minutesComboBox;
 	JButton addButton;
+	private JLabel minutesLabel;
+	private JComboBox comboBox_1;
 	
 	
 	public AddEventWindow(UserInterface userInterface) 
@@ -39,7 +41,7 @@ public class AddEventWindow extends JFrame
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void initialize()
 	{
-		setBounds(100, 100, 592, 519);
+		setBounds(100, 100, 738, 519);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -47,34 +49,34 @@ public class AddEventWindow extends JFrame
 		
 		JLabel putYourDataLabel = new JLabel("PODAJ DANE PONIŻEJ:");
 		putYourDataLabel.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		putYourDataLabel.setBounds(203, 16, 269, 42);
+		putYourDataLabel.setBounds(253, 16, 269, 42);
 		contentPane.add(putYourDataLabel);
 		
 		JLabel lblName = new JLabel("NAZWA: ");
 		lblName.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblName.setBounds(15, 69, 98, 30);
+		lblName.setBounds(44, 69, 98, 30);
 		contentPane.add(lblName);
 		
 		JLabel lblPlace = new JLabel("MIEJSCE:");
 		lblPlace.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblPlace.setBounds(15, 134, 127, 20);
+		lblPlace.setBounds(44, 134, 127, 20);
 		contentPane.add(lblPlace);
 		
 		JLabel lblDescription = new JLabel("OPIS: ");
 		lblDescription.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblDescription.setBounds(15, 190, 170, 20);
+		lblDescription.setBounds(44, 190, 170, 20);
 		contentPane.add(lblDescription);
 		
 		textField = new JTextField();
 		textField.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		textField.setBounds(193, 69, 269, 34);
+		textField.setBounds(203, 67, 384, 34);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		addButton = new JButton("DODAJ");
-		addButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		addButton.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		addButton.setBackground(new Color(0, 255, 0));
-		addButton.setBounds(203, 369, 137, 42);
+		addButton.setBounds(279, 367, 137, 42);
 		contentPane.add(addButton);
 		
 		addButton.addActionListener(bListener);
@@ -82,34 +84,45 @@ public class AddEventWindow extends JFrame
 		textField_1 = new JTextField();
 		textField_1.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		textField_1.setColumns(10);
-		textField_1.setBounds(193, 129, 269, 34);
+		textField_1.setBounds(203, 127, 384, 34);
 		contentPane.add(textField_1);
 		
 		textField_2 = new JTextField();
 		textField_2.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		textField_2.setColumns(10);
-		textField_2.setBounds(193, 185, 269, 34);
+		textField_2.setBounds(203, 183, 384, 34);
 		contentPane.add(textField_2);
 		
 		dateChooser = new JDateChooser();
-		dateChooser.setBounds(122, 276, 127, 42);
+		dateChooser.setBounds(99, 276, 127, 42);
 		dateChooser.setPreferredSize(new Dimension(100,100));
 		contentPane.add(dateChooser);
 		
 		JLabel lblDate = new JLabel("DATA: ");
 		lblDate.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblDate.setBounds(37, 287, 170, 20);
+		lblDate.setBounds(15, 287, 170, 20);
 		contentPane.add(lblDate);
 		
-		comboBox = new JComboBox();
-		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"00", "01" , "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"}));
-		comboBox.setBounds(417, 276, 86, 42);
-		contentPane.add(comboBox);
+		hoursComboBox = new JComboBox();
+		hoursComboBox.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		hoursComboBox.setModel(new DefaultComboBoxModel(new String[] {"00", "01" , "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"}));
+		hoursComboBox.setBounds(389, 276, 86, 42);
+		contentPane.add(hoursComboBox);
 		
-		JLabel lblHour = new JLabel("GODZINA: ");
-		lblHour.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblHour.setBounds(291, 287, 127, 20);
-		contentPane.add(lblHour);
+		JLabel hourLabel = new JLabel("GODZINA: ");
+		hourLabel.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		hourLabel.setBounds(262, 287, 127, 20);
+		contentPane.add(hourLabel);
+		
+		minutesLabel = new JLabel("MINUT: ");
+		minutesLabel.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		minutesLabel.setBounds(514, 287, 127, 20);
+		contentPane.add(minutesLabel);
+		
+		minutesComboBox = new JComboBox();
+		minutesComboBox.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		minutesComboBox.setModel(new DefaultComboBoxModel(new String[] {"5", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55", "60"}));
+		minutesComboBox.setBounds(608, 276, 86, 42);
+		contentPane.add(minutesComboBox);
 	}
 }

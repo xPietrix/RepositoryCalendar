@@ -13,18 +13,19 @@ public class ButtonListener implements ActionListener
 	EventsReaderWindow eventsReaderWindow;
 	DeleteEventsWindow deleteEventsWindow;
 	AboutProgramWindow aboutProgramWindow;
+	AlarmSettingsWindow alarmSettingsWindow;
 	
 	public ButtonListener(UserInterface userInterface)
 	{
 		this.userInterface = userInterface;
 	}
 	
+	@SuppressWarnings("deprecation")
 	public void actionPerformed(ActionEvent e) 
 	{
 		Date date;
-		
-		String name, place, description;
-		String hour;
+		String name, place, description, stringHour, stringMinutes;
+		int hour, minutes;
 		
 		if(e.getSource() == userInterface.addWindowItem)
 		{
@@ -41,6 +42,12 @@ public class ButtonListener implements ActionListener
 			System.out.println("zmienilo sie na SQL");
 			userInterface.changeToSQL();
 		}
+		else if(e.getSource() == userInterface.setAlarm)
+		{
+			alarmSettingsWindow = new AlarmSettingsWindow(userInterface);
+			alarmSettingsWindow.setVisible(true);
+		}
+		
 		else if(e.getSource() == userInterface.refreshButton)
 		{
 			eventsReaderWindow = new EventsReaderWindow(userInterface.service, userInterface);
@@ -68,23 +75,33 @@ public class ButtonListener implements ActionListener
 				place = addWindow.textField_1.getText();
 				description = addWindow.textField_2.getText();
 				date = addWindow.dateChooser.getDate();
-				hour = (String) addWindow.comboBox.getSelectedItem(); 
-				
+				stringHour = (String) addWindow.hoursComboBox.getSelectedItem();
+				stringMinutes = (String) addWindow.minutesComboBox.getSelectedItem();
+				System.out.println("Data z kalendarza: " + date);
+				hour = Integer.parseInt(stringHour);
+				minutes = Integer.parseInt(stringMinutes);
+				date.setHours(hour);
+				date.setMinutes(minutes);
 				
 				addWindow.service.addEvent(name, place, date, description);
 				
-				System.out.println("Data z kalendarza: " + date + "  " + hour);
-				
-				System.out.println(name);
-				System.out.println(place);
-				System.out.println(description);
-				System.out.println(date);
+				System.out.println("Data ze zmieniona godzina: " + date);
 			}
 			catch(NumberFormatException excep)
 			{
 				JOptionPane.showMessageDialog(addWindow, "Please Enter the Right Info", "Error", JOptionPane.ERROR_MESSAGE);
 				System.exit(0); 
 			}
+		}
+		else if(e.getSource() == alarmSettingsWindow.confirmButton)
+		{
+			String alarmMinutesString;
+			int alarmMinutes;
+			
+			alarmMinutesString = (String) alarmSettingsWindow.minutesChooser.getSelectedItem();
+			System.out.println("Alarm zostal ustawiony na " + alarmMinutesString + " minut przed wydarzeniem");	
+			alarmMinutes = Integer.parseInt(alarmMinutesString);
+			
 		}
 		else if(e.getSource() == deleteEventsWindow.deleteButton)
 		{
