@@ -9,6 +9,7 @@ import java.awt.Font;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JTextArea;
 import javax.swing.JButton;
 
 public class UserInterface 
@@ -20,9 +21,10 @@ public class UserInterface
 	DataRepository repo;
 	JMenuBar menuBar;
 	JMenu settingsMenu, deleteMenu, exportMenu, aboutProgramMenu, addWindowMenu;
-	JMenuItem setXML, setSQL, setAlarm, addWindowItem, deleteWindowItem, aboutProgramItem;
+	JMenuItem setXML, setSQL, setAlarm, addWindowItem, deleteWindowItem, aboutProgramItem, export;
 	JButton refreshButton;
 	JCalendar calendar;
+	JTextArea DataRepoInfo;
 
 	/**
 	 * Create the application.
@@ -105,6 +107,11 @@ public class UserInterface
 		
 		exportMenu.addSeparator();
 		
+		export = new JMenuItem("Eksport");
+		export.addActionListener(buttonListener);
+		export.setFont(new Font("Segoe UI", 24, 24));
+		exportMenu.add(export);
+		
 		aboutProgramMenu = new JMenu("O programie");
 		aboutProgramMenu.setFont(new Font("Segoe UI", 24, 24));
 		menuBar.add(aboutProgramMenu);
@@ -139,17 +146,25 @@ public class UserInterface
 		deleteWindowItem.addActionListener(buttonListener);
 		deleteMenu.add(deleteWindowItem);
 		
+		DataRepoInfo = new JTextArea();
+		DataRepoInfo.setFont(new Font("Monospaced", Font.PLAIN, 20));
+		DataRepoInfo.setText("XML");
+		DataRepoInfo.setBounds(1250, 700, 40, 30);
+		frame.getContentPane().add(DataRepoInfo);
+		
 		this.frame.setVisible(true);
 	}
 	
 	
 	public void changeToXml()
 	{
+		DataRepoInfo.setText("XML");
 		service = new DataService(new XMLRepository());
 	}
 	
 	public void changeToSQL()
 	{
+		DataRepoInfo.setText("SQL");
 		service = new DataService(new MySQLRepository());
 	}
 }

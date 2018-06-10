@@ -44,6 +44,10 @@ public class ButtonListener implements ActionListener
 			System.out.println("zmienilo sie na SQL");
 			userInterface.changeToSQL();
 		}
+		else if(e.getSource() == userInterface.export)
+		{
+			userInterface.service.exportToICal();
+		}
 		else if(e.getSource() == userInterface.setAlarm)
 		{
 			alarmSettingsWindow = new AlarmSettingsWindow(userInterface);

@@ -31,7 +31,7 @@ public class ICalExporter {
 			event = new VEvent();
 			Summary summary = event.setSummary(list.get(i).getName());
 			summary.setLanguage("en-us");
-			event.addComment(list.get(i).getDescription());
+			event.addComment(list.get(i).getName());
 			Date start = list.get(i).getDate();
 			event.setDateStart(start);
 			Duration duration = new Duration.Builder().minutes(1).build();

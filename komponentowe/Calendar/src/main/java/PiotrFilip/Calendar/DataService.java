@@ -152,5 +152,11 @@ public class DataService {
 			}
 		}
 	}
+	
+	public void exportToICal()
+	{
+		ICalExporter exporter = new ICalExporter(this);
+		exporter.export();
+	}
 
 }
