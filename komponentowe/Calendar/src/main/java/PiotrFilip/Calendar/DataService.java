@@ -120,11 +120,12 @@ public class DataService {
 		List<Event> eventList = dataRepo.getAllEvents();
 		for(int i=0; i<eventList.size(); i++)
 		{
-			if(!(eventList.get(i).getDate().after(from) && eventList.get(i).getDate().before(to)))
+			if(eventList.get(i).getDate().before(from))
 			{
 				eventList.remove(i);
 			}
 		}
+		System.out.println(eventList);
 		return eventList;
 	}
 	

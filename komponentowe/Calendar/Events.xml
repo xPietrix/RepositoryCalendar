@@ -1,68 +1,26 @@
 <events>
   <event>
-    <name>Impreza</name>
-    <description>Nowy Jork</description>
-    <date>2018-06-08 20:24:49</date>
-    <place>Nowy Jork</place>
+    <name>xx</name>
+    <description>xx</description>
+    <date>2018-06-08 10:44:17</date>
+    <place>xx</place>
   </event>
   <event>
-    <name>Spotkanie</name>
-    <description>Tokio</description>
-    <date>2018-06-15 20:38:11</date>
-    <place>Om�wi� projekt</place>
+    <name>qqq</name>
+    <description>qqq</description>
+    <date>2018-06-10 10:52:25</date>
+    <place>qqq</place>
   </event>
   <event>
-    <name>Urodziny</name>
-    <description>Sosnowiec</description>
-    <date>2018-06-22 00:00:00</date>
-    <place>Urodziny Janusza</place>
+    <name>qqq123</name>
+    <description>qqq123</description>
+    <date>2018-06-10 10:52:25</date>
+    <place>qqq123</place>
   </event>
   <event>
-    <name>fdsfs</name>
-    <description>gdfgd</description>
-    <date>2018-06-21 15:38:49</date>
-    <place>sdfsdf</place>
-  </event>
-  <event>
-    <name>QWER</name>
-    <description>ERTY</description>
-    <date>2018-06-06 16:48:51</date>
-    <place>DFGH</place>
-  </event>
-  <event>
-    <name>fsdf</name>
-    <description>gfdgd</description>
-    <date>2018-06-14 12:28:26</date>
-    <place>gdfgfd</place>
-  </event>
-  <event>
-    <name>fdfsd</name>
-    <description>dsfdsf</description>
-    <date>2018-06-14 12:47:58</date>
-    <place>gfdgd</place>
-  </event>
-  <event>
-    <name>xxx</name>
-    <description>xxxx</description>
-    <date>2018-06-13 13:20:51</date>
-    <place>xxx</place>
-  </event>
-  <event>
-    <name>gfgd</name>
-    <description>fgddfg</description>
-    <date>2018-06-13 13:24:33</date>
-    <place>fdgfd</place>
-  </event>
-  <event>
-    <name>df</name>
-    <description>fdf</description>
-    <date>2018-06-18 13:25:10</date>
-    <place>fsdf</place>
-  </event>
-  <event>
-    <name>dffd</name>
-    <description>fdfff</description>
-    <date>2018-06-13 13:25:10</date>
-    <place>fsdfdddd</place>
+    <name>aaa</name>
+    <description>aaa</description>
+    <date>2018-06-05 11:10:18</date>
+    <place>aaa</place>
   </event>
 </events>
