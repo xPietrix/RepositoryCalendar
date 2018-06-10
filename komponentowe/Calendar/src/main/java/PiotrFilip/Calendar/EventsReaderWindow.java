@@ -50,7 +50,6 @@ public class EventsReaderWindow extends JFrame
 		to.setMinutes(59);
 		to.setSeconds(59);
 		
-		
 		eventsList = (ArrayList<Event>) userInterface.service.getEventsByDates(from, to);
 		
 		//System.out.println(eventsList);
