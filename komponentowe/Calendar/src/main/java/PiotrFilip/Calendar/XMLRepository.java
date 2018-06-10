@@ -1,11 +1,11 @@
 package PiotrFilip.Calendar;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;    
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -408,10 +408,10 @@ public class XMLRepository implements DataRepository
 	public void deleteEvent(String name) throws NotExistingNameException
 	{
 		EventsList list = new EventsList();
+		List<Event> listPom = new ArrayList<Event>();
 		FileReader reader = null;
 		PrintWriter writer = null;
 		XStream xstream = new XStream();
-		boolean flag = false;
 		
 		try
 		{
@@ -494,18 +494,18 @@ public class XMLRepository implements DataRepository
 		
 		for(int i=0; i<list.getEvents().size(); i++)
 		{
-			if(list.getEvents().get(i).getName().equals(name))
+			if(!list.getEvents().get(i).getName().equals(name))
 			{
-				flag = true;
-				list.getEvents().remove(i);
+				listPom.add(list.getEvents().get(i));
 			}
 		}
 		
-		if(flag)
+		if(list.getEvents().size() == listPom.size())
 		{
 			throw new NotExistingNameException();
 		}
 		
+		list.setEvents(listPom);
 		
 		try 
 		{
@@ -526,10 +526,10 @@ public class XMLRepository implements DataRepository
 	public void deleteEvent(Date date) throws NotExistingDateException 
 	{
 		EventsList list = new EventsList();
+		List<Event> listPom = new ArrayList<Event>();
 		FileReader reader = null;
 		PrintWriter writer = null;
 		XStream xstream = new XStream();
-		boolean flag = false;
 		
 		try
 		{
@@ -612,18 +612,18 @@ public class XMLRepository implements DataRepository
 		
 		for(int i=0; i<list.getEvents().size(); i++)
 		{
-			if(list.getEvents().get(i).getDate().equals(date))
+			if(!list.getEvents().get(i).getDate().equals(date))
 			{
-				flag = true;
-				list.getEvents().remove(i);
+				listPom.add(list.getEvents().get(i));
 			}
 		}
 		
-		if(flag)
+		if(list.getEvents().size() == listPom.size())
 		{
 			throw new NotExistingDateException();
 		}
 		
+		list.setEvents(listPom);
 		
 		try 
 		{
@@ -644,10 +644,10 @@ public class XMLRepository implements DataRepository
 	public void updateEvent(String name, Event newEvent) throws NotExistingNameException 
 	{
 		EventsList list = new EventsList();
+		List<Event> listPom = new ArrayList<Event>();
 		FileReader reader = null;
 		PrintWriter writer = null;
 		XStream xstream = new XStream();
-		boolean flag = false;
 		
 		try
 		{
@@ -730,17 +730,18 @@ public class XMLRepository implements DataRepository
 		
 		for(int i=0; i<list.getEvents().size(); i++)
 		{
-			if(list.getEvents().get(i).getName().equals(name))
+			if(!list.getEvents().get(i).getName().equals(name))
 			{
-				flag = true;
-				list.getEvents().remove(i);
+				listPom.add(list.getEvents().get(i));
 			}
 		}
 		
-		if(flag)
+		if(list.getEvents().size() == listPom.size())
 		{
 			throw new NotExistingNameException();
 		}
+		
+		list.setEvents(listPom);
 		
 		list.getEvents().add(newEvent);
 		
@@ -763,10 +764,10 @@ public class XMLRepository implements DataRepository
 	public void updateEvent(Date date, Event newEvent) throws NotExistingDateException 
 	{
 		EventsList list = new EventsList();
+		List<Event> listPom = new ArrayList<Event>();
 		FileReader reader = null;
 		PrintWriter writer = null;
 		XStream xstream = new XStream();
-		boolean flag = false;
 		
 		try
 		{
@@ -849,17 +850,18 @@ public class XMLRepository implements DataRepository
 		
 		for(int i=0; i<list.getEvents().size(); i++)
 		{
-			if(list.getEvents().get(i).getDate().equals(date))
+			if(!list.getEvents().get(i).getDate().equals(date))
 			{
-				flag = true;
-				list.getEvents().remove(i);
+				listPom.add(list.getEvents().get(i));
 			}
 		}
 		
-		if(flag)
+		if(list.getEvents().size() == listPom.size())
 		{
 			throw new NotExistingDateException();
 		}
+		
+		list.setEvents(listPom);
 		
 		list.getEvents().add(newEvent);
 		

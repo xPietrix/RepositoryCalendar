@@ -120,7 +120,6 @@ public class DataService {
 	{
 		List<Event> eventList = dataRepo.getAllEvents();
 		List<Event> eventListPom = new ArrayList<Event>();
-		System.out.println(eventList.size());
 		
 		for(int i=0; i<eventList.size(); i++)
 		{
@@ -143,10 +142,11 @@ public class DataService {
 			{
 				try
 				{
-					dataRepo.deleteEvent(eventList.get(i).getName());
+					dataRepo.deleteEvent(eventList.get(i).getDate());
 				} 
-				catch (NotExistingNameException e)
+				catch (NotExistingDateException e)
 				{
+					System.out.println("XD");
 					e.printStackTrace();
 				}
 			}

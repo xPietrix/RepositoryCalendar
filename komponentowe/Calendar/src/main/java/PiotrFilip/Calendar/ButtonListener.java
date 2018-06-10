@@ -29,6 +29,7 @@ public class ButtonListener implements ActionListener
 		if(e.getSource() == userInterface.addWindowItem)
 		{
 			addWindow = new AddEventWindow(userInterface);
+			deleteEventsWindow = new DeleteEventsWindow(userInterface);
 			addWindow.setVisible(true);
 		}
 		else if(e.getSource() == userInterface.setXML)
@@ -49,7 +50,8 @@ public class ButtonListener implements ActionListener
 		}
 		else if(e.getSource() == userInterface.deleteWindowItem)
 		{
-			deleteEventsWindow = new DeleteEventsWindow(userInterface) ;
+			addWindow = new AddEventWindow(userInterface);
+			deleteEventsWindow = new DeleteEventsWindow(userInterface);
 			deleteEventsWindow.setVisible(true);
 			
 		} 
@@ -89,7 +91,6 @@ public class ButtonListener implements ActionListener
 		else if(e.getSource() == deleteEventsWindow.deleteButton)
 		{
 			String nameToDelete = deleteEventsWindow.textField.getText();
-			System.out.println("XDD");
 			try 
 			{
 				userInterface.service.deleteEvent(nameToDelete);
@@ -102,8 +103,8 @@ public class ButtonListener implements ActionListener
 		}
 		else if(e.getSource() == deleteEventsWindow.deleteOlder)
 		{
-			System.out.println("XDDAAA");
 			date = deleteEventsWindow.dateChooser.getDate();
+			System.out.println(date);
 			userInterface.service.removeEventsOlderThan(date);
 		}
 		
