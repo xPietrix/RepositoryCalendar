@@ -25,6 +25,7 @@ public class UserInterface
 	JButton refreshButton;
 	JCalendar calendar;
 	JTextArea DataRepoInfo;
+	Alarm alarm;
 
 	/**
 	 * Create the application.
@@ -34,6 +35,7 @@ public class UserInterface
 	{
 		service = new DataService(Repository);
 		buttonListener = new ButtonListener(this);
+		alarm = new Alarm(this);
 		initialize();
 	}
 

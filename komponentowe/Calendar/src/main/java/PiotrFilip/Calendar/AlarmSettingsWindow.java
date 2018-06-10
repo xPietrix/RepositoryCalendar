@@ -53,4 +53,10 @@ public class AlarmSettingsWindow extends JFrame
 		contentPane.add(confirmButton);
 		confirmButton.addActionListener(bListener);
 	}
+	
+	public int getAlarmSetting()
+	{
+		String stringMinutes = (String) minutesChooser.getSelectedItem();
+		return Integer.parseInt(stringMinutes);
+	}
 }

@@ -158,5 +158,36 @@ public class DataService {
 		ICalExporter exporter = new ICalExporter(this);
 		exporter.export();
 	}
+	
+	public Event getClosestEventFromNow() throws NoEventsException 
+	{
+		List<Event> eventList = dataRepo.getAllEvents();
+		List<Event> eventListPom = new ArrayList<Event>();
+		
+		if(eventList.size() == 0)
+		{
+			throw new NoEventsException();
+		}
+		
+		for(int i=0; i<eventList.size(); i++)
+		{
+			
+			if(eventList.get(i).getDate().after(new Date()))
+			{
+				eventListPom.add(eventList.get(i));
+			}
+		}
+		
+		eventList = eventListPom;
+		Event eventToReturn = eventList.get(0);
+		for(int i=1; i<eventList.size(); i++)
+		{
+			if(eventToReturn.getDate().after(eventList.get(i).getDate()))
+			{
+				eventToReturn = eventList.get(i);
+			}
+		}
+		return eventToReturn;
+	}
 
 }

@@ -102,6 +102,7 @@ public class ButtonListener implements ActionListener
 				JOptionPane.showMessageDialog(addWindow, "Please Enter the Right Info", "Error", JOptionPane.ERROR_MESSAGE);
 				System.exit(0); 
 			}
+			userInterface.alarm.run(alarmSettingsWindow.getAlarmSetting());
 		}
 		else if(e.getSource() == alarmSettingsWindow.confirmButton)
 		{
@@ -111,6 +112,7 @@ public class ButtonListener implements ActionListener
 			alarmMinutesString = (String) alarmSettingsWindow.minutesChooser.getSelectedItem();
 			System.out.println("Alarm zostal ustawiony na " + alarmMinutesString + " minut przed wydarzeniem");	
 			alarmMinutes = Integer.parseInt(alarmMinutesString);
+			userInterface.alarm.run(alarmSettingsWindow.getAlarmSetting());
 			
 		}
 		else if(e.getSource() == deleteEventsWindow.deleteButton)
@@ -125,12 +127,14 @@ public class ButtonListener implements ActionListener
 				deleteEventsWindow.textField.setText("Nie ma takiej nazwy");
 				e1.printStackTrace();
 			}	
+			userInterface.alarm.run(alarmSettingsWindow.getAlarmSetting());
 		}
 		else if(e.getSource() == deleteEventsWindow.deleteOlder)
 		{
 			date = deleteEventsWindow.dateChooser.getDate();
 			System.out.println(date);
 			userInterface.service.removeEventsOlderThan(date);
+			userInterface.alarm.run(alarmSettingsWindow.getAlarmSetting());
 		}
 		
 	}
