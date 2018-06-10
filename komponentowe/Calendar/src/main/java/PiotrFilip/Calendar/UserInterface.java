@@ -20,7 +20,7 @@ public class UserInterface
 	DataRepository repo;
 	JMenuBar menuBar;
 	JMenu settingsMenu, deleteMenu, exportMenu, aboutProgramMenu, addWindowMenu;
-	JMenuItem setXML, setSQL, addWindowItem, deleteWindowItem, aboutProgramItem;
+	JMenuItem setXML, setSQL, setAlarm, addWindowItem, deleteWindowItem, aboutProgramItem;
 	JButton refreshButton;
 	JCalendar calendar;
 
@@ -93,6 +93,11 @@ public class UserInterface
 		setSQL.setFont(new Font("Segoe UI", 24, 24));
 		setSQL.addActionListener(buttonListener);
 		settingsMenu.add(setSQL);
+		
+		setAlarm = new JMenuItem("Ustawienia alarmu");
+		setAlarm.setFont(new Font("Segoe UI", 24, 24));
+		setAlarm.addActionListener(buttonListener);
+		settingsMenu.add(setAlarm);
 		
 		exportMenu = new JMenu("Eksport");
 		exportMenu.setFont(new Font("Segoe UI", 24, 24));
