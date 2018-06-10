@@ -52,7 +52,7 @@ public class EventsReaderWindow extends JFrame
 		
 		eventsList = (ArrayList<Event>) userInterface.service.getEventsByDates(from, to);
 		
-		System.out.println(eventsList);
+		//System.out.println(eventsList);
 		
 		for(Event event: eventsList)
 		{

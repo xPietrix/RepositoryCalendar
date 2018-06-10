@@ -1,5 +1,6 @@
 package PiotrFilip.Calendar;
 
+import java.util.ArrayList;
 import java.util.Date; 
 import java.util.List;
 
@@ -118,14 +119,19 @@ public class DataService {
 	public List<Event> getEventsByDates(Date from, Date to)
 	{
 		List<Event> eventList = dataRepo.getAllEvents();
+		List<Event> eventListPom = new ArrayList<Event>();
+		System.out.println(eventList.size());
+		
 		for(int i=0; i<eventList.size(); i++)
 		{
-			if(!(eventList.get(i).getDate().after(from) && eventList.get(i).getDate().before(to)))
+			
+			if(eventList.get(i).getDate().after(from) && eventList.get(i).getDate().before(to))
 			{
-				eventList.remove(i);
+				eventListPom.add(eventList.get(i));
 			}
 		}
-		return eventList;
+		
+		return eventListPom;
 	}
 	
 	public void removeEventsOlderThan(Date when)
