@@ -5,4 +5,10 @@
     <date>2018-06-08 00:00:00</date>
     <place>aa</place>
   </event>
+  <event>
+    <name>Urodziny</name>
+    <description>Zgierz</description>
+    <date>2018-06-15 18:20:00</date>
+    <place>Urodziny Michała</place>
+  </event>
 </events>

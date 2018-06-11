@@ -17,12 +17,20 @@ public class Alarm {
 	private UserInterface userInterface;
 	AlarmManager mgr;
 	
+	/**
+	 * Konstruktor tworzacy obiekt klasy Alarm
+	 * @param userInterface obiekt glownego okna aplikacji
+	 */
 	Alarm (UserInterface userInterface)
 	{
 		this.userInterface = userInterface;
 		
 	}
 	
+	/**
+	 * Metoda ustawiajaca alarm na najblizsze wydarzenia wraz z uwzglednieniem wydarzenia
+	 * @param antyDelayMinutes opoznienie w minutach dla aktywacji alarmu
+	 */
 	public void set(int antyDelayMinutes)
 	{
 		mgr = new AlarmManager();
@@ -66,7 +74,6 @@ public class Alarm {
 		} 
 		catch (PastDateException e) 
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		catch(NullPointerException e)

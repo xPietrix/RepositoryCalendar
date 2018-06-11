@@ -17,6 +17,9 @@ public class MySQLRepository implements DataRepository
     private Statement statement = null;
     private ResultSet resultSet = null;
 
+	/* (non-Javadoc)
+	 * @see PiotrFilip.Calendar.DataRepository#getEvent(java.lang.String)
+	 */
 	public Event getEvent(String name) throws NotExistingNameException 
 	{
 		boolean flag = false;
@@ -70,7 +73,11 @@ public class MySQLRepository implements DataRepository
 		return event;
 	}
 
-	public Event getEvent(Date date) throws NotExistingDateException {
+	/* (non-Javadoc)
+	 * @see PiotrFilip.Calendar.DataRepository#getEvent(java.util.Date)
+	 */
+	public Event getEvent(Date date) throws NotExistingDateException 
+	{
 		
 		boolean flag = false;
 		Event event = new Event();
@@ -123,7 +130,11 @@ public class MySQLRepository implements DataRepository
 		return event;
 	}
 
-	public List<Event> getAllEvents() {
+	/* (non-Javadoc)
+	 * @see PiotrFilip.Calendar.DataRepository#getAllEvents()
+	 */
+	public List<Event> getAllEvents()
+	{
 		
 		Event event = new Event();
 		List<Event> eventList = new ArrayList<Event>();
@@ -167,7 +178,11 @@ public class MySQLRepository implements DataRepository
 		return eventList;
 	}
 
-	public void addEvent(Event newEvent) {
+	/* (non-Javadoc)
+	 * @see PiotrFilip.Calendar.DataRepository#addEvent(PiotrFilip.Calendar.Event)
+	 */
+	public void addEvent(Event newEvent) 
+	{
 		
 		PreparedStatement preparedStmt;
 
@@ -180,9 +195,9 @@ public class MySQLRepository implements DataRepository
 			        + " values (?, ?, ?, ?)");
 			
 			preparedStmt.setString(1, newEvent.getName());
-			preparedStmt.setString(2, newEvent.getDescription());
+			preparedStmt.setString(2, newEvent.getPlace());
 			preparedStmt.setTimestamp(3, new java.sql.Timestamp(newEvent.getDate().getTime()));
-			preparedStmt.setString(4, newEvent.getPlace());
+			preparedStmt.setString(4, newEvent.getDescription());
 			
 			preparedStmt.execute();
 		}
@@ -203,6 +218,9 @@ public class MySQLRepository implements DataRepository
 
 	}
 
+	/* (non-Javadoc)
+	 * @see PiotrFilip.Calendar.DataRepository#deleteEvent(java.lang.String)
+	 */
 	public void deleteEvent(String name) throws NotExistingNameException
 	{
 
@@ -237,6 +255,9 @@ public class MySQLRepository implements DataRepository
 
 	}
 
+	/* (non-Javadoc)
+	 * @see PiotrFilip.Calendar.DataRepository#deleteEvent(java.util.Date)
+	 */
 	public void deleteEvent(Date date) throws NotExistingDateException 
 	{
 		PreparedStatement preparedStmt;
@@ -271,6 +292,9 @@ public class MySQLRepository implements DataRepository
 
 	}
 
+	/* (non-Javadoc)
+	 * @see PiotrFilip.Calendar.DataRepository#updateEvent(java.lang.String, PiotrFilip.Calendar.Event)
+	 */
 	public void updateEvent(String name, Event newEvent) throws NotExistingNameException 
 	{
 		
@@ -344,6 +368,9 @@ public class MySQLRepository implements DataRepository
 
 	}
 
+	/* (non-Javadoc)
+	 * @see PiotrFilip.Calendar.DataRepository#updateEvent(java.util.Date, PiotrFilip.Calendar.Event)
+	 */
 	public void updateEvent(Date date, Event newEvent) throws NotExistingDateException 
 	{
 		boolean flag = false;

@@ -15,12 +15,19 @@ public class ICalExporter {
 	
 	DataService service;
 	
-	ICalExporter(DataService service)
+	/** 
+	 * Konstruktor tworzacy obiekt klasy ICalExporter
+	 * @param service obiekt warstwy logiki aplikacji
+	 */
+	public ICalExporter(DataService service)
 	{
 		this.service = service;
 	}
 	
-	void export()
+	/**
+	 * Metoda generujaca plik ics z wydarzen w repozytorium
+	 */
+	public void export()
 	{
 		ICalendar ical = new ICalendar();
 		List<Event> list = service.getEventList();
@@ -46,7 +53,6 @@ public class ICalExporter {
 		} 
 		catch (IOException e) 
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

@@ -20,6 +20,10 @@ public class AlarmSettingsWindow extends JFrame
 	JComboBox minutesChooser;
 	JButton confirmButton;
 	
+	/**
+	 * Konstruktor tworzacy obiekt klasy AlarmSettingsWindow
+	 * @param userInterface obiekt glownego okna aplikacji
+	 */
 	public AlarmSettingsWindow(UserInterface userInterface) 
 	{
 		service = userInterface.service;
@@ -27,6 +31,9 @@ public class AlarmSettingsWindow extends JFrame
 		initialize();
 	}
 	
+	/**
+	 * Metoda inicjalizujaca wyglad okna ustawien alarmu
+	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void initialize()
 	{
@@ -54,6 +61,10 @@ public class AlarmSettingsWindow extends JFrame
 		confirmButton.addActionListener(bListener);
 	}
 	
+	/**
+	 * Metoda zwracajaca opoznienie alarmu w minutach
+	 * @return ustawienie opoznienia alarmu
+	 */
 	public int getAlarmSetting()
 	{
 		String stringMinutes = (String) minutesChooser.getSelectedItem();

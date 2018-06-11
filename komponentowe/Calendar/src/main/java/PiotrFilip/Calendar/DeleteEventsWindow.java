@@ -25,6 +25,10 @@ public class DeleteEventsWindow extends JFrame
 	@SuppressWarnings("rawtypes")
 	JComboBox comboBox;
 
+	/**
+	 * Konstruktor tworzacy obiekt klasy DeleteEventsWindow
+	 * @param userInterface obiekt glownego okna aplikacji
+	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public DeleteEventsWindow(UserInterface userInterface) 
 	{
@@ -32,6 +36,9 @@ public class DeleteEventsWindow extends JFrame
 		initialize();
 	}
 	
+	/**
+	 * Metoda inicjalizujaca wyglad okna usuwania wydarzen
+	 */
 	private void initialize()
 	{
 		setBounds(100, 100, 592, 519);

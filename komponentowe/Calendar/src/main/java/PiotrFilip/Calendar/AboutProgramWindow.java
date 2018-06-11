@@ -13,6 +13,10 @@ public class AboutProgramWindow extends JFrame
 	DataService service;
 	ButtonListener bListener;
 	
+	/** 
+	 * Konstruktor tworzacy obiekt klasy AboutProgramWindow
+	 * @param userInterface obiekt glownego okna aplikacji
+	 */
 	public AboutProgramWindow(UserInterface userInterface) 
 	{
 		service = userInterface.service;
@@ -20,6 +24,9 @@ public class AboutProgramWindow extends JFrame
 		initialize();
 	}
 	
+	/**
+	 * Metoda inicjalizujaca wyglad okna wraz z opisem programu
+	 */
 	private void initialize()
 	{
 		String text = new String("Projekt końcowy - Termianrz \n"

@@ -28,10 +28,12 @@ public class UserInterface
 	JTextArea DataRepoInfo;
 	Alarm alarm;
 
-	/**
-	 * Create the application.
-	 */
+	
 
+	/**
+	 * Konstruktor tworzacy obiekt klasy UserInterface
+	 * @param Repository Zadane repozytorium
+	 */
 	public UserInterface(DataRepository Repository) 
 	{
 		service = new DataService(Repository);
@@ -40,8 +42,9 @@ public class UserInterface
 		initialize();
 	}
 
+	
 	/**
-	 * Initialize the contents of the frame.
+	 * Metoda inicjalizujaca wyglad oraz elementy glownego okna aplikacji
 	 */
 	public void initialize() 
 	{
@@ -167,12 +170,18 @@ public class UserInterface
 	}
 	
 	
+	/**
+	 * Metoda zmieniajaca repozytorium na implementujace obsluge pliku xml
+	 */
 	public void changeToXml()
 	{
 		DataRepoInfo.setText("XML");
 		service = new DataService(new XMLRepository());
 	}
 	
+	/**
+	 * Metoda zmieniajaca repozytorium na implementujace obsluge zewnetrznego serwera MySQL
+	 */
 	public void changeToSQL()
 	{
 		DataRepoInfo.setText("SQL");

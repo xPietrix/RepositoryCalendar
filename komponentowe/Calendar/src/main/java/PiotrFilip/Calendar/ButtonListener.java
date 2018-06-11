@@ -6,15 +6,44 @@ import java.util.Date;
 
 import javax.swing.JOptionPane;
 
+
+/**
+ * @author Piotr Wasiak, Filip Florczyk
+ *
+ */
 public class ButtonListener implements ActionListener
 {
-	AddEventWindow addWindow;
-	UserInterface userInterface;
-	EventsReaderWindow eventsReaderWindow;
-	DeleteEventsWindow deleteEventsWindow;
-	AboutProgramWindow aboutProgramWindow;
-	AlarmSettingsWindow alarmSettingsWindow;
 	
+	/**
+	 *  Obiekt klasy AddEventWindow - okno dodawania nowych wydarzen
+	 */
+	public AddEventWindow addWindow;
+	/**
+	 * Obiekt klasy UserInterface - glowne okno programu
+	 */
+	public UserInterface userInterface;
+	/**
+	 * Obiekt klasy EventsReaderWindow - okno wyswietlania wydarzen
+	 */
+	public EventsReaderWindow eventsReaderWindow;
+	/**
+	 * Obiekt klasy DeleteEventsWindow - Okno usuwania wydarzen
+	 */
+	public DeleteEventsWindow deleteEventsWindow;
+	/**
+	 * Obiekt klasy AboutProgramWindow - Okno wyswietlania informacji o programie
+	 */
+	public AboutProgramWindow aboutProgramWindow;
+	/**
+	 * Obiekt klasy AlarmSettingsWindow - Okno ustawien alarmu
+	 */
+	public AlarmSettingsWindow alarmSettingsWindow;
+	
+	
+	/**
+	 * Konstruktor klasy ButtonListener
+	 * @param userInterface - glowne okno programu
+	 */
 	public ButtonListener(UserInterface userInterface)
 	{
 		this.userInterface = userInterface;
@@ -22,7 +51,9 @@ public class ButtonListener implements ActionListener
 		
 	}
 	
-	@SuppressWarnings("deprecation")
+	/* (non-Javadoc)
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 */
 	public void actionPerformed(ActionEvent e) 
 	{
 		Date date;

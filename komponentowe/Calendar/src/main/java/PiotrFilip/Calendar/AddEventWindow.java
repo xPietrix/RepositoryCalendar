@@ -31,6 +31,10 @@ public class AddEventWindow extends JFrame
 	private JComboBox comboBox_1;
 	
 	
+	/**
+	 * Konstruktor tworzacy obiekt klasy AddEventWindow
+	 * @param userInterface obiekt glownego okna aplikacji
+	 */
 	public AddEventWindow(UserInterface userInterface) 
 	{
 		service = userInterface.service;
@@ -38,6 +42,9 @@ public class AddEventWindow extends JFrame
 		initialize();
 	}
 	
+	/**
+	 * Metoda inicjalizujaca wyglad okna dodawania wydarzen
+	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void initialize()
 	{

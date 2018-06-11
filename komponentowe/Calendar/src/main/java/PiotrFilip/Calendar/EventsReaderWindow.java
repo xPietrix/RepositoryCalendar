@@ -10,6 +10,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import javax.swing.JList;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
 
 @SuppressWarnings("serial")
 public class EventsReaderWindow extends JFrame 
@@ -70,6 +72,7 @@ public class EventsReaderWindow extends JFrame
 	
 	private void showAll(UserInterface userInterface)
 	{
+		
 		DefaultListModel dlm = new DefaultListModel();
 		ArrayList <Event> eventsList;
 		eventsList = (ArrayList<Event>) userInterface.service.getSortedEventList();
@@ -83,7 +86,12 @@ public class EventsReaderWindow extends JFrame
 				dlm.addElement(" ");
 		}
 		
-		list.setModel(dlm);
+		list = new JList<Object>(dlm);
+		list.setBackground(Color.LIGHT_GRAY);
+		list.setBounds(34, 26, 937, 577);
+		
+		JScrollPane scrollPane = new JScrollPane(list, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		contentPane.add(scrollPane);
 	}
 	
 	private void initialize()
@@ -94,13 +102,15 @@ public class EventsReaderWindow extends JFrame
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		list = new JList<Object>();
-		list.setBackground(Color.LIGHT_GRAY);
-		list.setBounds(34, 26, 937, 577);
-		contentPane.add(list);
+		
+		
+		
+		
 		if(specific)
 			showSpecific(userInterface);
 		else
 			showAll(userInterface);
+		
+		
 	}
 }

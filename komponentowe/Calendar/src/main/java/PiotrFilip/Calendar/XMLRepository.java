@@ -14,8 +14,15 @@ import com.thoughtworks.xstream.converters.ConversionException;
 import com.thoughtworks.xstream.converters.basic.DateConverter;
 import com.thoughtworks.xstream.io.StreamException;
 
+/**
+ * @author Piotr Wasiak, Filip Florczyk
+ *
+ */
 public class XMLRepository implements DataRepository
 {
+	/* (non-Javadoc)
+	 * @see PiotrFilip.Calendar.DataRepository#getEvent(java.lang.String)
+	 */
 	public Event getEvent(String name) throws NotExistingNameException 
 	{
 		
@@ -74,6 +81,9 @@ public class XMLRepository implements DataRepository
 		
 	}
 
+	/* (non-Javadoc)
+	 * @see PiotrFilip.Calendar.DataRepository#getEvent(java.util.Date)
+	 */
 	public Event getEvent(Date date) throws NotExistingDateException 
 	{
 		EventsList list = new EventsList();
@@ -129,6 +139,9 @@ public class XMLRepository implements DataRepository
 		throw new NotExistingDateException();
 	}
 
+	/* (non-Javadoc)
+	 * @see PiotrFilip.Calendar.DataRepository#getAllEvents()
+	 */
 	public List<Event> getAllEvents() 
 	{
 		EventsList list = new EventsList();
@@ -177,6 +190,9 @@ public class XMLRepository implements DataRepository
 		return list.getEvents();
 	}
 
+	/* (non-Javadoc)
+	 * @see PiotrFilip.Calendar.DataRepository#addEvent(PiotrFilip.Calendar.Event)
+	 */
 	public void addEvent(Event newEvent)
 	{
 		EventsList list = new EventsList();
@@ -243,6 +259,9 @@ public class XMLRepository implements DataRepository
 
 	}
 
+	/* (non-Javadoc)
+	 * @see PiotrFilip.Calendar.DataRepository#deleteEvent(java.lang.String)
+	 */
 	public void deleteEvent(String name) throws NotExistingNameException
 	{
 		EventsList list = new EventsList();
@@ -320,6 +339,9 @@ public class XMLRepository implements DataRepository
 
 	}
 
+	/* (non-Javadoc)
+	 * @see PiotrFilip.Calendar.DataRepository#deleteEvent(java.util.Date)
+	 */
 	public void deleteEvent(Date date) throws NotExistingDateException 
 	{
 		EventsList list = new EventsList();
@@ -397,6 +419,9 @@ public class XMLRepository implements DataRepository
 
 	}
 
+	/* (non-Javadoc)
+	 * @see PiotrFilip.Calendar.DataRepository#updateEvent(java.lang.String, PiotrFilip.Calendar.Event)
+	 */
 	public void updateEvent(String name, Event newEvent) throws NotExistingNameException 
 	{
 		EventsList list = new EventsList();
@@ -476,6 +501,9 @@ public class XMLRepository implements DataRepository
 
 	}
 
+	/* (non-Javadoc)
+	 * @see PiotrFilip.Calendar.DataRepository#updateEvent(java.util.Date, PiotrFilip.Calendar.Event)
+	 */
 	public void updateEvent(Date date, Event newEvent) throws NotExistingDateException 
 	{
 		EventsList list = new EventsList();
@@ -555,6 +583,10 @@ public class XMLRepository implements DataRepository
 
 	}
 	
+	/**
+	 * Odtworzenie pliku xml po bledach
+	 * @param writer
+	 */
 	private void recreateFile(PrintWriter writer)
 	{
 		File file = new File("Events.xml");
