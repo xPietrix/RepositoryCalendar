@@ -86,12 +86,9 @@ public class EventsReaderWindow extends JFrame
 				dlm.addElement(" ");
 		}
 		
-		list = new JList<Object>(dlm);
-		list.setBackground(Color.LIGHT_GRAY);
-		list.setBounds(34, 26, 937, 577);
+		list.setModel(dlm);
 		
-		JScrollPane scrollPane = new JScrollPane(list, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		contentPane.add(scrollPane);
+		
 	}
 	
 	private void initialize()
@@ -102,8 +99,10 @@ public class EventsReaderWindow extends JFrame
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		
-		
+		list = new JList<Object>();
+		list.setBackground(Color.LIGHT_GRAY);
+		list.setBounds(34, 26, 937, 577);
+		contentPane.add(list);
 		
 		
 		if(specific)
