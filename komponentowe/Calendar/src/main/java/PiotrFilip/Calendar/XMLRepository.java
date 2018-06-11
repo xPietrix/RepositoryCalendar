@@ -36,60 +36,15 @@ public class XMLRepository implements DataRepository
 		} 
 		catch (FileNotFoundException e) 
 		{
-			File file = new File("Events.xml");
-			try
-			{
-				file.createNewFile();
-				writer = new PrintWriter(file);
-				writer.println("<events>");
-				writer.println("</events>");
-				writer.close();
-				
-			} 
-			catch (IOException e1)
-			{
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			System.out.println("Tworzenie nowego pliku na dane - ponów próbę");
+			recreateFile(writer);
 		}
 		catch (StreamException e) 
 		{
-			File file = new File("Events.xml");
-			try
-			{
-				file.createNewFile();
-				writer = new PrintWriter(file);
-				writer.println("<events>");
-				writer.println("</events>");
-				writer.close();
-				
-			} 
-			catch (IOException e1)
-			{
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			System.out.println("Tworzenie nowego pliku na dane - ponów próbę");
+			recreateFile(writer);
 		}
 		catch (ConversionException e) 
 		{
-			File file = new File("Events.xml");
-			try
-			{
-				file.createNewFile();
-				writer = new PrintWriter(file);
-				writer.println("<events>");
-				writer.println("</events>");
-				writer.close();
-				
-			} 
-			catch (IOException e1)
-			{
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			System.out.println("Tworzenie nowego pliku na dane - ponów próbę");
+			recreateFile(writer);
 		}
 		finally
 		{
@@ -100,6 +55,10 @@ public class XMLRepository implements DataRepository
 			catch (IOException e) 
 			{
 				e.printStackTrace();
+			}
+			catch(NullPointerException e)
+			{
+				
 			}
 		}
 		
@@ -134,60 +93,15 @@ public class XMLRepository implements DataRepository
 		} 
 		catch (FileNotFoundException e) 
 		{
-			File file = new File("Events.xml");
-			try
-			{
-				file.createNewFile();
-				writer = new PrintWriter(file);
-				writer.println("<events>");
-				writer.println("</events>");
-				writer.close();
-				
-			} 
-			catch (IOException e1)
-			{
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			System.out.println("Tworzenie nowego pliku na dane - ponów próbę");
+			recreateFile(writer);
 		}
 		catch (StreamException e) 
 		{
-			File file = new File("Events.xml");
-			try
-			{
-				file.createNewFile();
-				writer = new PrintWriter(file);
-				writer.println("<events>");
-				writer.println("</events>");
-				writer.close();
-				
-			} 
-			catch (IOException e1)
-			{
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			System.out.println("Tworzenie nowego pliku na dane - ponów próbę");
+			recreateFile(writer);
 		}
 		catch (ConversionException e) 
 		{
-			File file = new File("Events.xml");
-			try
-			{
-				file.createNewFile();
-				writer = new PrintWriter(file);
-				writer.println("<events>");
-				writer.println("</events>");
-				writer.close();
-				
-			} 
-			catch (IOException e1)
-			{
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			System.out.println("Tworzenie nowego pliku na dane - ponów próbę");
+			recreateFile(writer);
 		}
 		finally
 		{
@@ -198,6 +112,10 @@ public class XMLRepository implements DataRepository
 			catch (IOException e) 
 			{
 				e.printStackTrace();
+			}
+			catch(NullPointerException e)
+			{
+				
 			}
 		}
 		
@@ -230,59 +148,15 @@ public class XMLRepository implements DataRepository
 		} 
 		catch (FileNotFoundException e) 
 		{
-			File file = new File("Events.xml");
-			try
-			{
-				file.createNewFile();
-				writer = new PrintWriter(file);
-				writer.println("<events>");
-				writer.println("</events>");
-				writer.close();
-			} 
-			catch (IOException e1)
-			{
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			System.out.println("Tworzenie nowego pliku na dane - ponów próbę");
+			recreateFile(writer);
 		}
 		catch (StreamException e) 
 		{
-			File file = new File("Events.xml");
-			try
-			{
-				file.createNewFile();
-				writer = new PrintWriter(file);
-				writer.println("<events>");
-				writer.println("</events>");
-				writer.close();
-				
-			} 
-			catch (IOException e1)
-			{
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			System.out.println("Tworzenie nowego pliku na dane - ponów próbę");
+			recreateFile(writer);
 		}
 		catch (ConversionException e) 
 		{
-			File file = new File("Events.xml");
-			try
-			{
-				file.createNewFile();
-				writer = new PrintWriter(file);
-				writer.println("<events>");
-				writer.println("</events>");
-				writer.close();
-				
-			} 
-			catch (IOException e1)
-			{
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			System.out.println("Tworzenie nowego pliku na dane - ponów próbę");
+			recreateFile(writer);
 		}
 		finally
 		{
@@ -293,6 +167,10 @@ public class XMLRepository implements DataRepository
 			catch (IOException e) 
 			{
 				e.printStackTrace();
+			}
+			catch(NullPointerException e)
+			{
+				
 			}
 		}
 		
@@ -319,59 +197,15 @@ public class XMLRepository implements DataRepository
 		} 
 		catch (FileNotFoundException e) 
 		{
-			File file = new File("Events.xml");
-			try
-			{
-				file.createNewFile();
-				writer = new PrintWriter(file);
-				writer.println("<events>");
-				writer.println("</events>");
-				writer.close();
-			} 
-			catch (IOException e1)
-			{
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			System.out.println("Tworzenie nowego pliku na dane - ponów próbę");
+			recreateFile(writer);
 		} 
 		catch (StreamException e) 
 		{
-			File file = new File("Events.xml");
-			try
-			{
-				file.createNewFile();
-				writer = new PrintWriter(file);
-				writer.println("<events>");
-				writer.println("</events>");
-				writer.close();
-				
-			} 
-			catch (IOException e1)
-			{
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			System.out.println("Tworzenie nowego pliku na dane - ponów próbę");
+			recreateFile(writer);
 		}
 		catch (ConversionException e) 
 		{
-			File file = new File("Events.xml");
-			try
-			{
-				file.createNewFile();
-				writer = new PrintWriter(file);
-				writer.println("<events>");
-				writer.println("</events>");
-				writer.close();
-				
-			} 
-			catch (IOException e1)
-			{
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			System.out.println("Tworzenie nowego pliku na dane - ponów próbę");
+			recreateFile(writer);
 		}
 		finally
 		{
@@ -382,6 +216,10 @@ public class XMLRepository implements DataRepository
 			catch (IOException e) 
 			{
 				e.printStackTrace();
+			}
+			catch(NullPointerException e)
+			{
+				
 			}
 		}
 		
@@ -425,60 +263,15 @@ public class XMLRepository implements DataRepository
 		} 
 		catch (FileNotFoundException e) 
 		{
-			File file = new File("Events.xml");
-			try
-			{
-				file.createNewFile();
-				writer = new PrintWriter(file);
-				writer.println("<events>");
-				writer.println("</events>");
-				writer.close();
-				
-			} 
-			catch (IOException e1)
-			{
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			System.out.println("Tworzenie nowego pliku na dane - ponów próbę");
+			recreateFile(writer);
 		}
 		catch (StreamException e) 
 		{
-			File file = new File("Events.xml");
-			try
-			{
-				file.createNewFile();
-				writer = new PrintWriter(file);
-				writer.println("<events>");
-				writer.println("</events>");
-				writer.close();
-				
-			} 
-			catch (IOException e1)
-			{
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			System.out.println("Tworzenie nowego pliku na dane - ponów próbę");
+			recreateFile(writer);
 		}
 		catch (ConversionException e) 
 		{
-			File file = new File("Events.xml");
-			try
-			{
-				file.createNewFile();
-				writer = new PrintWriter(file);
-				writer.println("<events>");
-				writer.println("</events>");
-				writer.close();
-				
-			} 
-			catch (IOException e1)
-			{
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			System.out.println("Tworzenie nowego pliku na dane - ponów próbę");
+			recreateFile(writer);
 		}
 		finally
 		{
@@ -489,6 +282,10 @@ public class XMLRepository implements DataRepository
 			catch (IOException e) 
 			{
 				e.printStackTrace();
+			}
+			catch(NullPointerException e)
+			{
+				
 			}
 		}
 		
@@ -543,60 +340,15 @@ public class XMLRepository implements DataRepository
 		} 
 		catch (FileNotFoundException e) 
 		{
-			File file = new File("Events.xml");
-			try
-			{
-				file.createNewFile();
-				writer = new PrintWriter(file);
-				writer.println("<events>");
-				writer.println("</events>");
-				writer.close();
-				
-			} 
-			catch (IOException e1)
-			{
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			System.out.println("Tworzenie nowego pliku na dane - ponów próbę");
+			recreateFile(writer);
 		}
 		catch (StreamException e) 
 		{
-			File file = new File("Events.xml");
-			try
-			{
-				file.createNewFile();
-				writer = new PrintWriter(file);
-				writer.println("<events>");
-				writer.println("</events>");
-				writer.close();
-				
-			} 
-			catch (IOException e1)
-			{
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			System.out.println("Tworzenie nowego pliku na dane - ponów próbę");
+			recreateFile(writer);
 		}
 		catch (ConversionException e) 
 		{
-			File file = new File("Events.xml");
-			try
-			{
-				file.createNewFile();
-				writer = new PrintWriter(file);
-				writer.println("<events>");
-				writer.println("</events>");
-				writer.close();
-				
-			} 
-			catch (IOException e1)
-			{
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			System.out.println("Tworzenie nowego pliku na dane - ponów próbę");
+			recreateFile(writer);
 		}
 		finally
 		{
@@ -607,6 +359,10 @@ public class XMLRepository implements DataRepository
 			catch (IOException e) 
 			{
 				e.printStackTrace();
+			}
+			catch(NullPointerException e)
+			{
+				
 			}
 		}
 		
@@ -661,60 +417,15 @@ public class XMLRepository implements DataRepository
 		} 
 		catch (FileNotFoundException e) 
 		{
-			File file = new File("Events.xml");
-			try
-			{
-				file.createNewFile();
-				writer = new PrintWriter(file);
-				writer.println("<events>");
-				writer.println("</events>");
-				writer.close();
-				
-			} 
-			catch (IOException e1)
-			{
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			System.out.println("Tworzenie nowego pliku na dane - ponów próbę");
+			recreateFile(writer);
 		}
 		catch (StreamException e) 
 		{
-			File file = new File("Events.xml");
-			try
-			{
-				file.createNewFile();
-				writer = new PrintWriter(file);
-				writer.println("<events>");
-				writer.println("</events>");
-				writer.close();
-				
-			} 
-			catch (IOException e1)
-			{
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			System.out.println("Tworzenie nowego pliku na dane - ponów próbę");
+			recreateFile(writer);
 		}
 		catch (ConversionException e) 
 		{
-			File file = new File("Events.xml");
-			try
-			{
-				file.createNewFile();
-				writer = new PrintWriter(file);
-				writer.println("<events>");
-				writer.println("</events>");
-				writer.close();
-				
-			} 
-			catch (IOException e1)
-			{
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			System.out.println("Tworzenie nowego pliku na dane - ponów próbę");
+			recreateFile(writer);
 		}
 		finally
 		{
@@ -725,6 +436,10 @@ public class XMLRepository implements DataRepository
 			catch (IOException e) 
 			{
 				e.printStackTrace();
+			}
+			catch(NullPointerException e)
+			{
+				
 			}
 		}
 		
@@ -781,60 +496,15 @@ public class XMLRepository implements DataRepository
 		} 
 		catch (FileNotFoundException e) 
 		{
-			File file = new File("Events.xml");
-			try
-			{
-				file.createNewFile();
-				writer = new PrintWriter(file);
-				writer.println("<events>");
-				writer.println("</events>");
-				writer.close();
-				
-			} 
-			catch (IOException e1)
-			{
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			System.out.println("Tworzenie nowego pliku na dane - ponów próbę");
+			recreateFile(writer);
 		}
 		catch (StreamException e) 
 		{
-			File file = new File("Events.xml");
-			try
-			{
-				file.createNewFile();
-				writer = new PrintWriter(file);
-				writer.println("<events>");
-				writer.println("</events>");
-				writer.close();
-				
-			} 
-			catch (IOException e1)
-			{
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			System.out.println("Tworzenie nowego pliku na dane - ponów próbę");
+			recreateFile(writer);
 		}
 		catch (ConversionException e) 
 		{
-			File file = new File("Events.xml");
-			try
-			{
-				file.createNewFile();
-				writer = new PrintWriter(file);
-				writer.println("<events>");
-				writer.println("</events>");
-				writer.close();
-				
-			} 
-			catch (IOException e1)
-			{
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			System.out.println("Tworzenie nowego pliku na dane - ponów próbę");
+			recreateFile(writer);
 		}
 		finally
 		{
@@ -845,6 +515,10 @@ public class XMLRepository implements DataRepository
 			catch (IOException e) 
 			{
 				e.printStackTrace();
+			}
+			catch(NullPointerException e)
+			{
+				
 			}
 		}
 		
@@ -879,6 +553,25 @@ public class XMLRepository implements DataRepository
 			writer.close();
 		}
 
+	}
+	
+	private void recreateFile(PrintWriter writer)
+	{
+		File file = new File("Events.xml");
+		try
+		{
+			file.createNewFile();
+			writer = new PrintWriter(file);
+			writer.println("<events>");
+			writer.println("</events>");
+			writer.close();
+			
+		} 
+		catch (IOException e1)
+		{
+			e1.printStackTrace();
+		}
+		System.out.println("Tworzenie nowego pliku na dane - ponów próbę");
 	}
 
 }

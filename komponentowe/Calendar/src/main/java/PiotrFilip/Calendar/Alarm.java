@@ -37,7 +37,6 @@ public class Alarm {
 			
 		}
 		
-		System.out.print("###" + event.getName());
 		
 		try
 		{
@@ -69,6 +68,10 @@ public class Alarm {
 		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+		catch(NullPointerException e)
+		{
+			
 		}
 	}
 }

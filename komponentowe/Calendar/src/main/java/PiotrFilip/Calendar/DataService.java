@@ -193,6 +193,7 @@ public class DataService {
 				eventToReturn = eventList.get(i);
 			}
 		}
+		
 		return eventToReturn;
 	}
 	
