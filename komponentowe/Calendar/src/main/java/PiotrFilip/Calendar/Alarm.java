@@ -20,12 +20,12 @@ public class Alarm {
 	Alarm (UserInterface userInterface)
 	{
 		this.userInterface = userInterface;
-		mgr = new AlarmManager();
+		
 	}
 	
-	public void run(int antyDelayMinutes)
+	public void set(int antyDelayMinutes)
 	{
-		
+		mgr = new AlarmManager();
 		Event event = null;
 		
 		try
@@ -41,7 +41,8 @@ public class Alarm {
 		
 		try
 		{
-			Date date = new Date(event.getDate().getTime() - antyDelayMinutes);
+			System.out.print(antyDelayMinutes);
+			Date date = new Date(event.getDate().getTime() - antyDelayMinutes * 60 * 1000);
 			System.out.println(date);
 			mgr.addAlarm(date,
 			           new AlarmListener() 

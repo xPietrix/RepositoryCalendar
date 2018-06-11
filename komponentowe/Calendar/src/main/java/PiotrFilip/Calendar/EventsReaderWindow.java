@@ -18,16 +18,18 @@ public class EventsReaderWindow extends JFrame
 	DataService service;
 	UserInterface userInterface;
 	JList<?> list;
+	boolean specific;
 	
-	public EventsReaderWindow(DataService service, UserInterface userInterface) 
+	public EventsReaderWindow(DataService service, UserInterface userInterface, boolean specific) 
 	{
 		this.service = service;
 		this.userInterface = userInterface; 
+		this.specific = specific;
 		initialize();
 	}
 
 	@SuppressWarnings({ "deprecation", "unchecked" })
-	private void refreshList(DataService service, UserInterface userInterface)
+	private void showSpecific(UserInterface userInterface)
 	{
 		@SuppressWarnings("rawtypes")
 		DefaultListModel dlm = new DefaultListModel();
@@ -59,6 +61,25 @@ public class EventsReaderWindow extends JFrame
 				dlm.addElement(event.getName());	
 				dlm.addElement(event.getDate().toString());
 				dlm.addElement(event.getDescription());
+				dlm.addElement(event.getPlace());
+				dlm.addElement(" ");
+		}
+		
+		list.setModel(dlm);
+	}
+	
+	private void showAll(UserInterface userInterface)
+	{
+		DefaultListModel dlm = new DefaultListModel();
+		ArrayList <Event> eventsList;
+		eventsList = (ArrayList<Event>) userInterface.service.getSortedEventList();
+		
+		for(Event event: eventsList)
+		{
+				dlm.addElement(event.getName());	
+				dlm.addElement(event.getDate().toString());
+				dlm.addElement(event.getDescription());
+				dlm.addElement(event.getPlace());
 				dlm.addElement(" ");
 		}
 		
@@ -77,6 +98,9 @@ public class EventsReaderWindow extends JFrame
 		list.setBackground(Color.LIGHT_GRAY);
 		list.setBounds(34, 26, 937, 577);
 		contentPane.add(list);
-		refreshList(service, userInterface);
+		if(specific)
+			showSpecific(userInterface);
+		else
+			showAll(userInterface);
 	}
 }

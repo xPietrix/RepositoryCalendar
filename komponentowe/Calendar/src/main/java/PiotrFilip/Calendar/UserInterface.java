@@ -23,6 +23,7 @@ public class UserInterface
 	JMenu settingsMenu, deleteMenu, exportMenu, aboutProgramMenu, addWindowMenu;
 	JMenuItem setXML, setSQL, setAlarm, addWindowItem, deleteWindowItem, aboutProgramItem, export;
 	JButton refreshButton;
+	JButton showAllButton;
 	JCalendar calendar;
 	JTextArea DataRepoInfo;
 	Alarm alarm;
@@ -76,6 +77,12 @@ public class UserInterface
 		refreshButton.addActionListener(buttonListener);
 		refreshButton.setBounds(1061, 50, 243, 58);
 		frame.getContentPane().add(refreshButton);
+		
+		showAllButton = new JButton("Pokaż wszystkie wydarzenia");
+		showAllButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		showAllButton.addActionListener(buttonListener);
+		showAllButton.setBounds(1020, 140, 300, 58);
+		frame.getContentPane().add(showAllButton);
 		
 		menuBar = new JMenuBar();
 		menuBar.setFont(new Font("Segoe UI", Font.PLAIN, 25));
@@ -152,9 +159,11 @@ public class UserInterface
 		DataRepoInfo.setFont(new Font("Monospaced", Font.PLAIN, 20));
 		DataRepoInfo.setText("XML");
 		DataRepoInfo.setBounds(1250, 700, 40, 30);
+		DataRepoInfo.setEditable(false);
 		frame.getContentPane().add(DataRepoInfo);
 		
 		this.frame.setVisible(true);
+		
 	}
 	
 	

@@ -44,7 +44,7 @@ public class AlarmSettingsWindow extends JFrame
 		minutesChooser = new JComboBox();
 		minutesChooser.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		minutesChooser.setBounds(90, 105, 109, 42);
-		minutesChooser.setModel(new DefaultComboBoxModel(new String[] {"5", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55", "60"}));
+		minutesChooser.setModel(new DefaultComboBoxModel(new String[] {"0", "5", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55", "60"}));
 		contentPane.add(minutesChooser);
 		
 		confirmButton = new JButton("Zatwierdź");

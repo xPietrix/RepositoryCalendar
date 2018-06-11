@@ -121,7 +121,7 @@ public class AddEventWindow extends JFrame
 		
 		minutesComboBox = new JComboBox();
 		minutesComboBox.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		minutesComboBox.setModel(new DefaultComboBoxModel(new String[] {"5", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55", "60"}));
+		minutesComboBox.setModel(new DefaultComboBoxModel(new String[] {"0", "5", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55", "60"}));
 		minutesComboBox.setBounds(608, 276, 86, 42);
 		contentPane.add(minutesComboBox);
 	}

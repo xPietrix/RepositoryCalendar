@@ -179,6 +179,12 @@ public class DataService {
 		}
 		
 		eventList = eventListPom;
+		
+		if(eventList.size() == 0)
+		{
+			throw new NoEventsException();
+		}
+		
 		Event eventToReturn = eventList.get(0);
 		for(int i=1; i<eventList.size(); i++)
 		{
@@ -188,6 +194,13 @@ public class DataService {
 			}
 		}
 		return eventToReturn;
+	}
+	
+	public List<Event> getSortedEventList()
+	{
+		ArrayList<Event> eventList = (ArrayList<Event>) dataRepo.getAllEvents();
+		eventList.sort(new DateComparator());
+		return eventList;
 	}
 
 }

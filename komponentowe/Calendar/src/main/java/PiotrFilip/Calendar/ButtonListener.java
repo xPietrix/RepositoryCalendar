@@ -18,6 +18,8 @@ public class ButtonListener implements ActionListener
 	public ButtonListener(UserInterface userInterface)
 	{
 		this.userInterface = userInterface;
+		alarmSettingsWindow = new AlarmSettingsWindow(userInterface);
+		
 	}
 	
 	@SuppressWarnings("deprecation")
@@ -31,7 +33,6 @@ public class ButtonListener implements ActionListener
 		{
 			addWindow = new AddEventWindow(userInterface);
 			deleteEventsWindow = new DeleteEventsWindow(userInterface);
-			alarmSettingsWindow = new AlarmSettingsWindow(userInterface);
 			addWindow.setVisible(true);
 		}
 		else if(e.getSource() == userInterface.setXML)
@@ -50,23 +51,25 @@ public class ButtonListener implements ActionListener
 		}
 		else if(e.getSource() == userInterface.setAlarm)
 		{
-			alarmSettingsWindow = new AlarmSettingsWindow(userInterface);
-			addWindow = new AddEventWindow(userInterface);
-			deleteEventsWindow = new DeleteEventsWindow(userInterface);
 			alarmSettingsWindow.setVisible(true);
 		}
 		
 		else if(e.getSource() == userInterface.refreshButton)
 		{
-			eventsReaderWindow = new EventsReaderWindow(userInterface.service, userInterface);
+			eventsReaderWindow = new EventsReaderWindow(userInterface.service, userInterface, true);
 			eventsReaderWindow.setVisible(true);
-			
+			userInterface.alarm.set(alarmSettingsWindow.getAlarmSetting());
+		}
+		else if(e.getSource() == userInterface.showAllButton)
+		{
+			eventsReaderWindow = new EventsReaderWindow(userInterface.service, userInterface, false);
+			eventsReaderWindow.setVisible(true);
+			userInterface.alarm.set(alarmSettingsWindow.getAlarmSetting());
 		}
 		else if(e.getSource() == userInterface.deleteWindowItem)
 		{
 			addWindow = new AddEventWindow(userInterface);
 			deleteEventsWindow = new DeleteEventsWindow(userInterface);
-			alarmSettingsWindow = new AlarmSettingsWindow(userInterface);
 			deleteEventsWindow.setVisible(true);
 			
 		} 
@@ -92,6 +95,7 @@ public class ButtonListener implements ActionListener
 				minutes = Integer.parseInt(stringMinutes);
 				date.setHours(hour);
 				date.setMinutes(minutes);
+				date.setSeconds(0);
 				
 				addWindow.service.addEvent(name, place, date, description);
 				
@@ -102,7 +106,7 @@ public class ButtonListener implements ActionListener
 				JOptionPane.showMessageDialog(addWindow, "Please Enter the Right Info", "Error", JOptionPane.ERROR_MESSAGE);
 				System.exit(0); 
 			}
-			userInterface.alarm.run(alarmSettingsWindow.getAlarmSetting());
+			userInterface.alarm.set(alarmSettingsWindow.getAlarmSetting());
 		}
 		else if(e.getSource() == alarmSettingsWindow.confirmButton)
 		{
@@ -112,7 +116,7 @@ public class ButtonListener implements ActionListener
 			alarmMinutesString = (String) alarmSettingsWindow.minutesChooser.getSelectedItem();
 			System.out.println("Alarm zostal ustawiony na " + alarmMinutesString + " minut przed wydarzeniem");	
 			alarmMinutes = Integer.parseInt(alarmMinutesString);
-			userInterface.alarm.run(alarmSettingsWindow.getAlarmSetting());
+			userInterface.alarm.set(alarmSettingsWindow.getAlarmSetting());
 			
 		}
 		else if(e.getSource() == deleteEventsWindow.deleteButton)
@@ -127,14 +131,17 @@ public class ButtonListener implements ActionListener
 				deleteEventsWindow.textField.setText("Nie ma takiej nazwy");
 				e1.printStackTrace();
 			}	
-			userInterface.alarm.run(alarmSettingsWindow.getAlarmSetting());
+			userInterface.alarm.set(alarmSettingsWindow.getAlarmSetting());
 		}
 		else if(e.getSource() == deleteEventsWindow.deleteOlder)
 		{
 			date = deleteEventsWindow.dateChooser.getDate();
+			date.setHours(Integer.parseInt((String) deleteEventsWindow.comboBox.getSelectedItem()));
+			date.setMinutes(0);
+			date.setSeconds(0);
 			System.out.println(date);
 			userInterface.service.removeEventsOlderThan(date);
-			userInterface.alarm.run(alarmSettingsWindow.getAlarmSetting());
+			userInterface.alarm.set(alarmSettingsWindow.getAlarmSetting());
 		}
 		
 	}
