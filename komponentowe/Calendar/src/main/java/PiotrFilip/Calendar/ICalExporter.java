@@ -56,6 +56,4 @@ public class ICalExporter {
 			e.printStackTrace();
 		}
 	}
-	
-
 }

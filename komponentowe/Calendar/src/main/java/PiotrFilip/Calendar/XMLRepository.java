@@ -244,7 +244,6 @@ public class XMLRepository implements DataRepository
 		try 
 		{
 			writer = new PrintWriter("Events.xml");
-			System.out.println(xstream.toXML(list));
 			writer.println(xstream.toXML(list));
 		} 
 		catch (FileNotFoundException e) 
@@ -603,7 +602,6 @@ public class XMLRepository implements DataRepository
 		{
 			e1.printStackTrace();
 		}
-		System.out.println("Tworzenie nowego pliku na dane - ponów próbę");
 	}
 
 }

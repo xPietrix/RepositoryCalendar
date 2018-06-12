@@ -39,6 +39,7 @@ public class DeleteEventsWindow extends JFrame
 	/**
 	 * Metoda inicjalizujaca wyglad okna usuwania wydarzen
 	 */
+	@SuppressWarnings("rawtypes")
 	private void initialize()
 	{
 		setBounds(100, 100, 592, 519);

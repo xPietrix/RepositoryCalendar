@@ -11,4 +11,10 @@
     <date>2018-06-15 18:20:00</date>
     <place>Urodziny Michała</place>
   </event>
+  <event>
+    <name>Spotkanie</name>
+    <description>Toruń</description>
+    <date>2018-06-12 06:30:00</date>
+    <place>Spotkanie absolwentów</place>
+  </event>
 </events>

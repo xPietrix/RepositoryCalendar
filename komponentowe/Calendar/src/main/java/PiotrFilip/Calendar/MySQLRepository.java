@@ -248,7 +248,6 @@ public class MySQLRepository implements DataRepository
 				connect.close();
 			} catch (SQLException e) 
 			{
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -270,8 +269,6 @@ public class MySQLRepository implements DataRepository
 			preparedStmt = connect.prepareStatement("delete from Events where date = ?");
 			
 			preparedStmt.setTimestamp(1, new java.sql.Timestamp(date.getTime()));
-	
-			
 			preparedStmt.execute();
 		}
 		catch (Exception e)
@@ -285,7 +282,6 @@ public class MySQLRepository implements DataRepository
 				connect.close();
 			} catch (SQLException e) 
 			{
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -358,7 +354,6 @@ public class MySQLRepository implements DataRepository
 					connect.close();
 				} catch (SQLException e) 
 				{
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
@@ -407,7 +402,6 @@ public class MySQLRepository implements DataRepository
 				connect.close();
 			} catch (SQLException e) 
 			{
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			throw new NotExistingDateException();

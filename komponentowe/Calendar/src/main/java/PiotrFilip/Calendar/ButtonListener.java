@@ -68,12 +68,10 @@ public class ButtonListener implements ActionListener
 		}
 		else if(e.getSource() == userInterface.setXML)
 		{
-			System.out.println("zmienilo sie na XML");
 			userInterface.changeToXml();
 		}
 		else if(e.getSource() == userInterface.setSQL)
 		{
-			System.out.println("zmienilo sie na SQL");
 			userInterface.changeToSQL();
 		}
 		else if(e.getSource() == userInterface.export)
@@ -110,9 +108,7 @@ public class ButtonListener implements ActionListener
 			aboutProgramWindow.setVisible(true);
 		}
 		else if(e.getSource() == addWindow.addButton)
-		{
-			System.out.println("SaveButton is working");
-			
+		{	
 			try
 			{
 				name = addWindow.textField.getText();
@@ -121,7 +117,6 @@ public class ButtonListener implements ActionListener
 				date = addWindow.dateChooser.getDate();
 				stringHour = (String) addWindow.hoursComboBox.getSelectedItem();
 				stringMinutes = (String) addWindow.minutesComboBox.getSelectedItem();
-				System.out.println("Data z kalendarza: " + date);
 				hour = Integer.parseInt(stringHour);
 				minutes = Integer.parseInt(stringMinutes);
 				date.setHours(hour);
@@ -129,8 +124,6 @@ public class ButtonListener implements ActionListener
 				date.setSeconds(0);
 				
 				addWindow.service.addEvent(name, place, date, description);
-				
-				System.out.println("Data ze zmieniona godzina: " + date);
 			}
 			catch(NumberFormatException excep)
 			{
@@ -144,11 +137,9 @@ public class ButtonListener implements ActionListener
 			String alarmMinutesString;
 			int alarmMinutes;
 			
-			alarmMinutesString = (String) alarmSettingsWindow.minutesChooser.getSelectedItem();
-			System.out.println("Alarm zostal ustawiony na " + alarmMinutesString + " minut przed wydarzeniem");	
+			alarmMinutesString = (String) alarmSettingsWindow.minutesChooser.getSelectedItem();	
 			alarmMinutes = Integer.parseInt(alarmMinutesString);
 			userInterface.alarm.set(alarmSettingsWindow.getAlarmSetting());
-			
 		}
 		else if(e.getSource() == deleteEventsWindow.deleteButton)
 		{
@@ -170,10 +161,8 @@ public class ButtonListener implements ActionListener
 			date.setHours(Integer.parseInt((String) deleteEventsWindow.comboBox.getSelectedItem()));
 			date.setMinutes(0);
 			date.setSeconds(0);
-			System.out.println(date);
 			userInterface.service.removeEventsOlderThan(date);
 			userInterface.alarm.set(alarmSettingsWindow.getAlarmSetting());
 		}
-		
 	}
 }

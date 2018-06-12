@@ -48,9 +48,7 @@ public class Alarm {
 		
 		try
 		{
-			System.out.print(antyDelayMinutes);
 			Date date = new Date(event.getDate().getTime() - antyDelayMinutes * 60 * 1000);
-			System.out.println(date);
 			mgr.addAlarm(date,
 			           new AlarmListener() 
 			{

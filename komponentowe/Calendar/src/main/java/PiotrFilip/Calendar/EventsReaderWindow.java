@@ -56,8 +56,6 @@ public class EventsReaderWindow extends JFrame
 		
 		eventsList = (ArrayList<Event>) userInterface.service.getEventsByDates(from, to);
 		
-		//System.out.println(eventsList);
-		
 		for(Event event: eventsList)
 		{
 				dlm.addElement(event.getName());	
@@ -109,7 +107,6 @@ public class EventsReaderWindow extends JFrame
 			showSpecific(userInterface);
 		else
 			showAll(userInterface);
-		
-		
+
 	}
 }

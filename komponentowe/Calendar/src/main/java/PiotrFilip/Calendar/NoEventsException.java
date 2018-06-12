@@ -1,5 +1,6 @@
 package PiotrFilip.Calendar;
 
-public class NoEventsException extends Exception {
+public class NoEventsException extends Exception
+{
 
 }

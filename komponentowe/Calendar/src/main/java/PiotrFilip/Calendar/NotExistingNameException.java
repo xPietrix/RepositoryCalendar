@@ -1,6 +1,7 @@
 package PiotrFilip.Calendar;
 
 
-public class NotExistingNameException extends Exception {
+public class NotExistingNameException extends Exception
+{
 
 }
