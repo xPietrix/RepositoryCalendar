@@ -604,4 +604,12 @@ public class XMLRepository implements DataRepository
 		}
 	}
 
+	public void clear()
+	{
+		PrintWriter writer = null;
+		
+		recreateFile(writer);
+		
+	}
+
 }

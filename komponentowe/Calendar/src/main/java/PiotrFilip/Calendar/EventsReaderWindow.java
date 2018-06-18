@@ -56,6 +56,9 @@ public class EventsReaderWindow extends JFrame
 		
 		eventsList = (ArrayList<Event>) userInterface.service.getEventsByDates(from, to);
 		
+		dlm.addElement("Zdarzenia z " + from.getDate() + "-" + (from.getMonth()+1) + "-" + (from.getYear()+1900));
+		dlm.addElement(" ");
+		
 		for(Event event: eventsList)
 		{
 				dlm.addElement(event.getName());	
@@ -74,6 +77,9 @@ public class EventsReaderWindow extends JFrame
 		DefaultListModel dlm = new DefaultListModel();
 		ArrayList <Event> eventsList;
 		eventsList = (ArrayList<Event>) userInterface.service.getSortedEventList();
+		
+		dlm.addElement("Wszystkie zdarzenia:");
+		dlm.addElement(" ");
 		
 		for(Event event: eventsList)
 		{

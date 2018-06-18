@@ -1,20 +1,20 @@
 <events>
   <event>
-    <name>aa</name>
-    <description>aa</description>
-    <date>2018-06-08 00:00:00</date>
-    <place>aa</place>
+    <name>qq</name>
+    <description>qq</description>
+    <date>2018-06-18 18:30:00</date>
+    <place>qq</place>
   </event>
   <event>
-    <name>Urodziny</name>
-    <description>Zgierz</description>
-    <date>2018-06-15 18:20:00</date>
-    <place>Urodziny Michała</place>
+    <name>yy</name>
+    <description>yy</description>
+    <date>2018-06-18 18:40:00</date>
+    <place>yy</place>
   </event>
   <event>
-    <name>Spotkanie</name>
-    <description>Toruń</description>
-    <date>2018-06-12 06:30:00</date>
-    <place>Spotkanie absolwentów</place>
+    <name>zz</name>
+    <description>zz</description>
+    <date>2018-06-18 18:55:00</date>
+    <place>zz</place>
   </event>
 </events>

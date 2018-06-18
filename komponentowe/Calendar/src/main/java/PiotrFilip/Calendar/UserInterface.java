@@ -21,7 +21,7 @@ public class UserInterface
 	DataRepository repo;
 	JMenuBar menuBar;
 	JMenu settingsMenu, deleteMenu, exportMenu, aboutProgramMenu, addWindowMenu;
-	JMenuItem setXML, setSQL, setAlarm, addWindowItem, deleteWindowItem, aboutProgramItem, export;
+	JMenuItem setXML, setSQL, setAlarm, synchronizeFromXML, synchronizeFromSQL, addWindowItem, deleteWindowItem, aboutProgramItem, export;
 	JButton refreshButton;
 	JButton showAllButton;
 	JCalendar calendar;
@@ -107,6 +107,16 @@ public class UserInterface
 		setSQL.setFont(new Font("Segoe UI", 24, 24));
 		setSQL.addActionListener(buttonListener);
 		settingsMenu.add(setSQL);
+		
+		synchronizeFromXML = new JMenuItem("Synchronizuj z XML");
+		synchronizeFromXML.setFont(new Font("Segoe UI", 24, 24));
+		synchronizeFromXML.addActionListener(buttonListener);
+		settingsMenu.add(synchronizeFromXML);
+		
+		synchronizeFromSQL = new JMenuItem("Synchronizuj z SQL");
+		synchronizeFromSQL.setFont(new Font("Segoe UI", 24, 24));
+		synchronizeFromSQL.addActionListener(buttonListener);
+		settingsMenu.add(synchronizeFromSQL);
 		
 		setAlarm = new JMenuItem("Ustawienia alarmu");
 		setAlarm.setFont(new Font("Segoe UI", 24, 24));

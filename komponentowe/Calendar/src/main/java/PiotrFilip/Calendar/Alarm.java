@@ -1,6 +1,5 @@
 package PiotrFilip.Calendar;
 
-import java.awt.Toolkit;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Date;
@@ -16,6 +15,7 @@ public class Alarm {
 	
 	private UserInterface userInterface;
 	AlarmManager mgr;
+	AlarmWindow window;
 	
 	/**
 	 * Konstruktor tworzacy obiekt klasy Alarm
@@ -24,16 +24,16 @@ public class Alarm {
 	Alarm (UserInterface userInterface)
 	{
 		this.userInterface = userInterface;
-		
+		mgr = new AlarmManager();
 	}
 	
 	/**
 	 * Metoda ustawiajaca alarm na najblizsze wydarzenia wraz z uwzglednieniem wydarzenia
 	 * @param antyDelayMinutes opoznienie w minutach dla aktywacji alarmu
 	 */
-	public void set(int antyDelayMinutes)
+	public void set(final int antyDelayMinutes)
 	{
-		mgr = new AlarmManager();
+		
 		Event event = null;
 		
 		try
@@ -45,6 +45,7 @@ public class Alarm {
 			
 		}
 		
+		final String text = event.getName() + "\n" + event.getDescription() + "\n" + event.getPlace();
 		
 		try
 		{
@@ -57,6 +58,8 @@ public class Alarm {
 					try 
 					{
 						Player player = new Player(new FileInputStream("alarm.mp3"));
+						window = new AlarmWindow(userInterface, antyDelayMinutes, text);
+						window.setVisible(true);
 						player.play();
 					} 
 					catch (FileNotFoundException e)

@@ -54,5 +54,7 @@ public interface DataRepository
 	 * @throws NotExistingDateException Wyjatek rzucany w momencie nie wystepowania podanej daty na liscie dat wydarzen w repozytorium
 	 */
 	public void updateEvent(Date date, Event newEvent) throws NotExistingDateException;
+	
+	public void clear();
 
 }

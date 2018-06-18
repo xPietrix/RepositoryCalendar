@@ -2,6 +2,7 @@ package PiotrFilip.Calendar;
 
 import java.awt.event.ActionEvent;    
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.swing.JOptionPane;
@@ -73,6 +74,33 @@ public class ButtonListener implements ActionListener
 		else if(e.getSource() == userInterface.setSQL)
 		{
 			userInterface.changeToSQL();
+		}
+		else if(e.getSource() == userInterface.synchronizeFromXML)
+		{
+			DataRepository repo = new XMLRepository();
+			DataService XMLService = new DataService(repo);
+			ArrayList<Event> list = (ArrayList<Event>) XMLService.getEventList();
+			
+			userInterface.service.clearEvents();
+			
+			for(int i=0; i<list.size(); i++)
+			{
+				userInterface.service.addEvent(list.get(i).getName(), list.get(i).getDescription(), list.get(i).getDate(), list.get(i).getPlace());
+			}
+			
+		}
+		else if(e.getSource() == userInterface.synchronizeFromSQL)
+		{
+			DataRepository repo = new MySQLRepository();
+			DataService SQLService = new DataService(repo);
+			ArrayList<Event> list = (ArrayList<Event>) SQLService.getEventList();
+			
+			userInterface.service.clearEvents();
+			
+			for(int i=0; i<list.size(); i++)
+			{
+				userInterface.service.addEvent(list.get(i).getName(), list.get(i).getDescription(), list.get(i).getDate(), list.get(i).getPlace());
+			}
 		}
 		else if(e.getSource() == userInterface.export)
 		{

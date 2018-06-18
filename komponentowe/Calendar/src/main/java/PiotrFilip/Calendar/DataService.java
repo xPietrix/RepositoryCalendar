@@ -286,5 +286,10 @@ public class DataService
 		eventList.sort(new DateComparator());
 		return eventList;
 	}
+	
+	public void clearEvents()
+	{
+		dataRepo.clear();
+	}
 
 }

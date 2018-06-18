@@ -440,4 +440,33 @@ public class MySQLRepository implements DataRepository
 
 	}
 
+	public void clear() {
+		PreparedStatement preparedStmt;
+
+		try
+		{
+			Class.forName("com.mysql.jdbc.Driver");
+			String url = "jdbc:mysql://db4free.net:3306/baza_kompo";
+			connect = DriverManager.getConnection(url, "kompo_210175", "prostehaslo");
+			preparedStmt = connect.prepareStatement("delete from Events");
+			
+			preparedStmt.execute();
+		}
+		catch (Exception e)
+		{
+			
+		}
+		finally
+		{
+			try 
+			{
+				connect.close();
+			} catch (SQLException e) 
+			{
+				e.printStackTrace();
+			}
+		}
+		
+	}
+
 }
